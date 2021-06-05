@@ -3,6 +3,8 @@ const path = require('path');
 
 const BIN = path.join(__dirname, 'bin/');
 
+/* https://stackoverflow.com/questions/20643470/execute-a-command-line-binary-with-node-js */
+
 app.get('/', function(req, res){
 
 });
