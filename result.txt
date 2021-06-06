@@ -1,0 +1,23 @@
+Creating and sorting random array with 10000000 integers, from 0 to 2147483647
+
+JAVASCRIPT
+Code executed in 11157 ms
+
+C-Text
+Code executed in 8548 ms
+
+C-Binary (via buffer)
+Code executed in 2183 ms
+
+time ./text 10000000 > /dev/null
+
+real	0m2,527s
+user	0m2,483s
+sys	  0m0,044s
+
+time ./binary 10000000 > /dev/null
+
+real	0m1,591s
+user	0m1,566s
+sys	  0m0,024s
+

@@ -52,7 +52,7 @@ int main(int argc, char ** argv){
   }
 
   v = calloc(n, sizeof(int));
-  time_seed();
+  
   sorteia_array(n, MAX_N, v);
   quick_sort(n, v);
   fwrite(v, sizeof(int), n, stdout);

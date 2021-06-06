@@ -2,7 +2,8 @@
 const path = require('path');
 const TeenPr = require('teen_process');
 
-const BIN = path.join(__dirname, 'bin/main');
+const C_BINARY = path.join(__dirname, 'bin/binary');
+const C_TEXT = path.join(__dirname, 'bin/text');
 
 const SIZE_INPUT = 10000000;
 const MAX_INT = 0x7fffffff;
@@ -31,8 +32,8 @@ function printasbin(str){
   console.log('');
 }
 
-async function cCreateAndSort(){
-  let out = await TeenPr.exec(`${BIN}`,
+async function cBinary(){
+  let out = await TeenPr.exec(`${C_BINARY}`,
           [ SIZE_INPUT ],
           {encoding: 'binary'});
 
@@ -44,13 +45,20 @@ async function cCreateAndSort(){
 
   if(WRITE_SORTED)
     console.log(v);
-  /*
+}
+
+async function cText(){
+  let out = await TeenPr.exec(`${C_TEXT}`,
+          [ SIZE_INPUT ]);
+
+  let buf = Buffer.from(out.stdout,'binary');
+
   var strarray = out.stdout.replace(' \n', '');
   strarray = strarray.split(' ');
   var numarray = strarray.map(x => Number(x));
   
-  if(OUTPUT_STDOUT && WRITE_SORTED) console.log(numarray);
-  */
+  if( WRITE_SORTED)
+    console.log(numarray);
 }
 
 /* Sorting functions, rewritten in JS */
@@ -71,8 +79,10 @@ async function main(){
   console.log(`Creating and sorting random array with ${SIZE_INPUT} integers, from 0 to ${MAX_INT}\n`);
   console.log('JAVASCRIPT');
   await timer(jsCreateAndSort);
-  console.log('C');
-  await timer(cCreateAndSort);
+  console.log('C-Text');
+  await timer(cText);
+  console.log('C-Binary (via buffer)');
+  await timer(cBinary);
 }
 
 main();
