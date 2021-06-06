@@ -26,8 +26,6 @@ async function cText(size_input, print_sorted){
   let out = await TeenPr.exec(`${C_TEXT}`,
           [ size_input ]);
 
-  let buf = Buffer.from(out.stdout,'binary');
-
   let strarray = out.stdout.replace(' \n', '');
   strarray = strarray.split(' ');
   let numarray = strarray.map(x => Number(x));
@@ -39,9 +37,10 @@ async function cText(size_input, print_sorted){
 async function cBinary(size_input, print_sorted){
   const out = await TeenPr.exec(`${C_BINARY}`,
           [ size_input ],
-          {encoding: 'binary'});
+          {encoding: 'binary',
+           isBuffer: true});
 
-  const buf = Buffer.from(out.stdout,'binary');
+  const buf = out.stdout;
   let v = [];
 
   for(var i = 0; i < size_input * 4; i += 4)
@@ -59,7 +58,8 @@ async function main(){
   const size_input = argv.n || 10000;
   const print_sorted = argv.print || false;
 
-  console.log(`Creating and sorting random array with ${size_input} integers, from 0 to ${MAX_INT}\n`);
+  console.log(`Creating and sorting random array with ${size_input} integers, from 0 to ${MAX_INT}`);
+  console.log(`We are running in ${process.env.NODE_ENV || "development"} mode.\n`);
   console.log('JAVASCRIPT');
   await timer(jsCreateAndSort, size_input, print_sorted);
   console.log('C-Text');
