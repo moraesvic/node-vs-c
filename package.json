@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "childprocess": "^2.0.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "teen_process": "^1.16.0"
   }
 }

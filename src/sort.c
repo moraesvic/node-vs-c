@@ -34,16 +34,6 @@ void bubble_sort(const int n, int v[]){
     }
 }
 
-void insert_sort_2(const int n, int v[]){
-    int i, j, temp;
-    for(j = 1; j < n; j++){
-        temp = v[j];
-        for(i= j-1; i >= 0 && v[i] > temp; i--)
-            v[i+1] = v[i];
-        v[i+1] = temp;
-    }
-}
-
 void insert_sort(const int n, int v[]){
     int i, j, temp;
     for(j = 1; j < n; j++){
@@ -207,7 +197,7 @@ void bucket_sort(const int n, const int r_max, const int r_min, int v[]){
     }
     /* organização interna das urnas */
     for(i = 0; i < n_urnas; i++)
-        insert_sort_2(urnas[i]->topo, urnas[i]->v);
+        insert_sort(urnas[i]->topo, urnas[i]->v);
     /* concatenação das urnas */
     Vetor_Int_to_array(urnas, n_urnas, v);
     for(i = 0; i < n_urnas; i++)
