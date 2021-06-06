@@ -4,9 +4,9 @@ const TeenPr = require('teen_process');
 
 const BIN = path.join(__dirname, 'bin/main');
 
-const SIZE_INPUT = 10;
+const SIZE_INPUT = 10000000;
 const MAX_INT = 0x7fffffff;
-const WRITE_SORTED = true;
+const WRITE_SORTED = false;
 
 
 async function timer(fn){
@@ -24,21 +24,26 @@ function jsCreateAndSort(){
   if(WRITE_SORTED) console.log(v);
 }
 
+function printasbin(str){
+  /* PLEASE DON'T DO IT */
+  for(var i = 0; i < str.length; i++)
+    process.stdout.write(`${str.charCodeAt(i)} `);
+  console.log('');
+}
+
 async function cCreateAndSort(){
   let out = await TeenPr.exec(`${BIN}`,
-          [ SIZE_INPUT ]);
+          [ SIZE_INPUT ],
+          {encoding: 'binary'});
+
+  let buf = Buffer.from(out.stdout,'binary');
 
   var v = [];
-  var item;
-  for(var i = 0; i < SIZE_INPUT * 4; i += 4){
-    item = 0x00000001 * out.stdout.charCodeAt(i)
-         + 0x00000100 * out.stdout.charCodeAt(i+1)
-         + 0x00010000 * out.stdout.charCodeAt(i+2)
-         + 0x01000000 * out.stdout.charCodeAt(i+3);
-    v.push(item);
-  }
+  for(var i = 0; i < SIZE_INPUT * 4; i += 4)
+    v.push(buf.readInt32LE(i));
 
-  console.log(v);
+  if(WRITE_SORTED)
+    console.log(v);
   /*
   var strarray = out.stdout.replace(' \n', '');
   strarray = strarray.split(' ');
