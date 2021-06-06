@@ -1,0 +1,1009 @@
+Statistical profiling result from isolate-0x1ff4c10-v8.log, (2593 ticks, 26 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+    159    6.1%          /usr/lib/x86_64-linux-gnu/libnode.so.64
+     96    3.7%          /lib/x86_64-linux-gnu/libc-2.31.so
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+    318   12.3%   13.6%  LazyCompile: ~QuickSort native array.js:530:19
+    221    8.5%    9.5%  LazyCompile: *QuickSort native array.js:530:19
+     89    3.4%    3.8%  Builtin: KeyedLoadIC
+     61    2.4%    2.6%  LazyCompile: *v.sort /home/michael/webdev/node_vs_c/app.js:22:10
+     51    2.0%    2.2%  Builtin: CallFunction_ReceiverIsNullOrUndefined
+     46    1.8%    2.0%  Builtin: KeyedStoreIC
+     35    1.3%    1.5%  LazyCompile: *InsertionSort native array.js:499:23
+     29    1.1%    1.2%  Builtin: InterpreterEntryTrampoline
+     29    1.1%    1.2%  Builtin: Call_ReceiverIsNullOrUndefined
+     29    1.1%    1.2%  Builtin: CallFunction_ReceiverIsAny
+     27    1.0%    1.2%  Builtin: ArrayMapLoopContinuation
+     21    0.8%    0.9%  Stub: StoreFastElementStub
+     13    0.5%    0.6%  Builtin: CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit
+     12    0.5%    0.5%  Builtin: ArgumentsAdaptorTrampoline
+     11    0.4%    0.5%  LazyCompile: *cBinary /home/michael/webdev/node_vs_c/app.js:55:23
+     10    0.4%    0.4%  Builtin: MathRandom
+      6    0.2%    0.3%  LazyCompile: ~InsertionSort native array.js:499:23
+      6    0.2%    0.3%  LazyCompile: *proc.stdout.on /home/michael/webdev/node_vs_c/app.js:76:26
+      6    0.2%    0.3%  Builtin: NumberConstructor
+      6    0.2%    0.3%  Builtin: Call_ReceiverIsAny
+      5    0.2%    0.2%  LazyCompile: *jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      4    0.2%    0.2%  LazyCompile: ~InnerArraySort native array.js:486:24
+      4    0.2%    0.2%  LazyCompile: *onStreamRead internal/stream_base_commons.js:87:22
+      3    0.1%    0.1%  LazyCompile: *<anonymous> native array.js:524:17
+      3    0.1%    0.1%  Builtin: GrowFastSmiOrObjectElements
+      2    0.1%    0.1%  Stub: ArraySingleArgumentConstructorStub
+      2    0.1%    0.1%  LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      2    0.1%    0.1%  LazyCompile: ~proc.stdout.on /home/michael/webdev/node_vs_c/app.js:43:26
+      2    0.1%    0.1%  LazyCompile: ~proc.(anonymous function).on.chunk /home/michael/webdev/node_vs_c/node_modules/teen_process/build/lib/exec.js:83:35
+      2    0.1%    0.1%  LazyCompile: ~normalizeString path.js:52:25
+      2    0.1%    0.1%  LazyCompile: ~_unrefTimer net.js:333:52
+      2    0.1%    0.1%  LazyCompile: ~_tickCallback internal/process/next_tick.js:41:25
+      2    0.1%    0.1%  LazyCompile: ~Readable.read _stream_readable.js:391:35
+      2    0.1%    0.1%  Builtin: ArrayPrototypePush
+      1    0.0%    0.0%  Stub: StoreFastElementStub {1}
+      1    0.0%    0.0%  LazyCompile: ~validateNumber internal/validators.js:128:24
+      1    0.0%    0.0%  LazyCompile: ~strarray.map.x /home/michael/webdev/node_vs_c/app.js:32:31
+      1    0.0%    0.0%  LazyCompile: ~shift internal/fixed_queue.js:104:8
+      1    0.0%    0.0%  LazyCompile: ~resolve path.js:1068:28
+      1    0.0%    0.0%  LazyCompile: ~realpathSync fs.js:1380:22
+      1    0.0%    0.0%  LazyCompile: ~openSync fs.js:433:18
+      1    0.0%    0.0%  LazyCompile: ~nextTick internal/process/next_tick.js:96:20
+      1    0.0%    0.0%  LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      1    0.0%    0.0%  LazyCompile: ~isUint8Array internal/util/types.js:28:22
+      1    0.0%    0.0%  LazyCompile: ~getOptions internal/fs/utils.js:167:20
+      1    0.0%    0.0%  LazyCompile: ~getDefaultTriggerAsyncId internal/async_hooks.js:270:34
+      1    0.0%    0.0%  LazyCompile: ~generateHolderClass /home/michael/webdev/node_vs_c/node_modules/bluebird/js/release/join.js:27:39
+      1    0.0%    0.0%  LazyCompile: ~binding internal/bootstrap/loaders.js:77:39
+      1    0.0%    0.0%  LazyCompile: ~WritableState _stream_writable.js:54:23
+      1    0.0%    0.0%  LazyCompile: ~TickObject internal/process/next_tick.js:74:16
+      1    0.0%    0.0%  LazyCompile: ~Socket._read net.js:527:34
+      1    0.0%    0.0%  LazyCompile: ~NativeModule.exists internal/bootstrap/loaders.js:198:33
+      1    0.0%    0.0%  LazyCompile: ~Module._nodeModulePaths internal/modules/cjs/loader.js:414:37
+      1    0.0%    0.0%  LazyCompile: ~GetThirdIndex native array.js:514:23
+      1    0.0%    0.0%  Builtin: TypedArrayPrototypeToStringTag
+      1    0.0%    0.0%  Builtin: StoreIC
+      1    0.0%    0.0%  Builtin: ReflectApply
+      1    0.0%    0.0%  Builtin: LoadIC_Uninitialized
+      1    0.0%    0.0%  Builtin: KeyedStoreIC_Megamorphic
+      1    0.0%    0.0%  Builtin: InterpreterPushUndefinedAndArgsThenCall
+      1    0.0%    0.0%  Builtin: CreateTypedArray
+      1    0.0%    0.0%  Builtin: CompileLazy
+      1    0.0%    0.0%  Builtin: ArrayMap
+
+ [C++]:
+   ticks  total  nonlib   name
+     64    2.5%    2.7%  v8::internal::Scavenger::ScavengeObject(v8::internal::HeapObjectReference**, v8::internal::HeapObject*)
+     62    2.4%    2.7%  epoll_pwait
+     49    1.9%    2.1%  v8::internal::Factory::NewFixedArrayWithFiller(v8::internal::Heap::RootListIndex, int, v8::internal::Object*, v8::internal::PretenureFlag)
+     48    1.9%    2.1%  __pthread_cond_wait
+     38    1.5%    1.6%  node::contextify::ContextifyScript::New(v8::FunctionCallbackInfo<v8::Value> const&)
+     35    1.3%    1.5%  node::contextify::ContextifyContext::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+     30    1.2%    1.3%  v8::internal::IncrementalMarking::Step(unsigned long, v8::internal::IncrementalMarking::CompletionAction, v8::internal::StepOrigin, v8::internal::WorklistToProcess)
+     19    0.7%    0.8%  v8::internal::compiler::LinearScanAllocator::AllocateRegisters()
+     19    0.7%    0.8%  __mprotect
+     18    0.7%    0.8%  v8::internal::compiler::LinearScanAllocator::FindFreeRegistersForRange(v8::internal::compiler::LiveRange*, v8::internal::Vector<v8::internal::compiler::LifetimePosition>)
+     18    0.7%    0.8%  __libc_read
+     17    0.7%    0.7%  v8::internal::IncrementalMarking::WhiteToGreyAndPush(v8::internal::HeapObject*)
+     16    0.6%    0.7%  void v8::internal::LookupIterator::Start<true>()
+     15    0.6%    0.6%  v8::internal::LookupIterator::PropertyOrElement(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>, bool*, v8::internal::LookupIterator::Configuration)
+     14    0.5%    0.6%  v8::internal::Factory::NewRawOneByteString(int, v8::internal::PretenureFlag)
+     14    0.5%    0.6%  v8::internal::Factory::NewProperSubString(v8::internal::Handle<v8::internal::String>, int, int)
+     13    0.5%    0.6%  void v8::internal::String::WriteToFlat<unsigned char>(v8::internal::String*, unsigned char*, int, int)
+     13    0.5%    0.6%  v8::internal::Heap::AllocateRaw(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment)
+     12    0.5%    0.5%  v8::internal::Object::AddDataProperty(v8::internal::LookupIterator*, v8::internal::Handle<v8::internal::Object>, v8::internal::PropertyAttributes, v8::internal::ShouldThrow, v8::internal::Object::StoreFromKeyed)
+     12    0.5%    0.5%  v8::internal::LookupIterator::State v8::internal::LookupIterator::LookupInRegularHolder<true>(v8::internal::Map*, v8::internal::JSReceiver*)
+     11    0.4%    0.5%  v8::internal::compiler::LiveRange::FirstIntersection(v8::internal::compiler::LiveRange*) const
+     11    0.4%    0.5%  v8::internal::Runtime_StringSplit(int, v8::internal::Object**, v8::internal::Isolate*)
+     11    0.4%    0.5%  v8::internal::JSObject::AddDataElement(v8::internal::Handle<v8::internal::JSObject>, unsigned int, v8::internal::Handle<v8::internal::Object>, v8::internal::PropertyAttributes, v8::internal::ShouldThrow)
+     10    0.4%    0.4%  v8::internal::compiler::LiveRangeConnector::ResolveControlFlow(v8::internal::Zone*)
+     10    0.4%    0.4%  v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment)
+      9    0.3%    0.4%  void std::vector<int, std::allocator<int> >::emplace_back<int>(int&&)
+      9    0.3%    0.4%  v8::internal::HeapObject::SizeFromMap(v8::internal::Map*) const
+      9    0.3%    0.4%  __pthread_cond_signal
+      8    0.3%    0.3%  v8::internal::compiler::LiveRange::Covers(v8::internal::compiler::LifetimePosition) const
+      8    0.3%    0.3%  v8::internal::JSReceiver::CreateDataProperty(v8::internal::LookupIterator*, v8::internal::Handle<v8::internal::Object>, v8::internal::ShouldThrow)
+      8    0.3%    0.3%  v8::internal::Factory::AllocateRawWithImmortalMap(int, v8::internal::PretenureFlag, v8::internal::Map*, v8::internal::AllocationAlignment)
+      7    0.3%    0.3%  v8::internal::compiler::MoveOptimizer::MigrateMoves(v8::internal::compiler::Instruction*, v8::internal::compiler::Instruction*)
+      7    0.3%    0.3%  v8::internal::compiler::LiveRangeBuilder::ProcessInstructions(v8::internal::compiler::InstructionBlock const*, v8::internal::BitVector*)
+      7    0.3%    0.3%  v8::internal::String::ToNumber(v8::internal::Handle<v8::internal::String>)
+      7    0.3%    0.3%  v8::internal::Runtime_CreateDataProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      7    0.3%    0.3%  v8::internal::Runtime::GetObjectProperty(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>, bool*)
+      7    0.3%    0.3%  v8::internal::BitVector::Iterator::Advance()
+      7    0.3%    0.3%  __write
+      7    0.3%    0.3%  __libc_malloc
+      6    0.2%    0.3%  void v8::internal::LookupIterator::NextInternal<true>(v8::internal::Map*, v8::internal::JSReceiver*)
+      6    0.2%    0.3%  v8::internal::compiler::Node::New(v8::internal::Zone*, unsigned int, v8::internal::compiler::Operator const*, int, v8::internal::compiler::Node* const*, bool)
+      6    0.2%    0.3%  v8::internal::compiler::LiveRangeSeparator::Splinter()
+      6    0.2%    0.3%  v8::internal::compiler::InstructionSelector::VisitBlock(v8::internal::compiler::BasicBlock*)
+      6    0.2%    0.3%  v8::internal::compiler::CodeAssemblerLabel::UpdateVariablesAfterBind()
+      6    0.2%    0.3%  v8::internal::String::SlowAsArrayIndex(unsigned int*)
+      6    0.2%    0.3%  v8::internal::Scavenger::ScavengePage(v8::internal::MemoryChunk*)
+      6    0.2%    0.3%  v8::internal::Object::GetProperty(v8::internal::LookupIterator*)
+      6    0.2%    0.3%  v8::internal::LookupIterator::FetchValue() const
+      6    0.2%    0.3%  v8::internal::JSObject::IsExtensible(v8::internal::Handle<v8::internal::JSObject>)
+      6    0.2%    0.3%  v8::internal::Heap::CreateFillerObjectAt(unsigned long, int, v8::internal::ClearRecordedSlots, v8::internal::ClearFreedMemoryMode)
+      6    0.2%    0.3%  std::_Rb_tree_increment(std::_Rb_tree_node_base const*)
+      5    0.2%    0.2%  v8::internal::compiler::RegisterAllocationData::AddGapMove(int, v8::internal::compiler::Instruction::GapPosition, v8::internal::compiler::InstructionOperand const&, v8::internal::compiler::InstructionOperand const&)
+      5    0.2%    0.2%  v8::internal::compiler::CodeAssemblerLabel::MergeVariables()
+      5    0.2%    0.2%  v8::internal::compiler::BasicBlock::AddNode(v8::internal::compiler::Node*)
+      5    0.2%    0.2%  v8::internal::String::Flatten(v8::internal::Handle<v8::internal::String>, v8::internal::PretenureFlag)
+      5    0.2%    0.2%  v8::internal::Scanner::Scan()
+      5    0.2%    0.2%  v8::internal::JSObject::EnsureWritableFastElements(v8::internal::Handle<v8::internal::JSObject>)
+      5    0.2%    0.2%  v8::internal::JSObject::CreateDataProperty(v8::internal::LookupIterator*, v8::internal::Handle<v8::internal::Object>, v8::internal::ShouldThrow)
+      5    0.2%    0.2%  v8::internal::IncrementalMarking::RecordWriteSlow(v8::internal::HeapObject*, v8::internal::HeapObjectReference**, v8::internal::Object*)
+      5    0.2%    0.2%  v8::internal::Heap::AllocateRawWithLigthRetry(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment)
+      4    0.2%    0.2%  v8::internal::compiler::MoveOptimizer::OptimizeMerge(v8::internal::compiler::InstructionBlock*)
+      4    0.2%    0.2%  v8::internal::compiler::LiveRange::ShouldBeAllocatedBefore(v8::internal::compiler::LiveRange const*) const
+      4    0.2%    0.2%  v8::internal::compiler::LinearScanAllocator::TryAllocateFreeReg(v8::internal::compiler::LiveRange*, v8::internal::Vector<v8::internal::compiler::LifetimePosition> const&)
+      4    0.2%    0.2%  v8::internal::compiler::LinearScanAllocator::ProcessCurrentRange(v8::internal::compiler::LiveRange*)
+      4    0.2%    0.2%  v8::internal::compiler::ConstraintBuilder::MeetConstraintsBefore(int)
+      4    0.2%    0.2%  v8::internal::Zone::New(unsigned long)
+      4    0.2%    0.2%  v8::internal::StringSearch<unsigned char, unsigned char>::LinearSearch(v8::internal::StringSearch<unsigned char, unsigned char>*, v8::internal::Vector<unsigned char const>, int)
+      4    0.2%    0.2%  v8::internal::Scavenger::Process(v8::internal::OneshotBarrier*)
+      4    0.2%    0.2%  v8::internal::Runtime_StringToNumber(int, v8::internal::Object**, v8::internal::Isolate*)
+      4    0.2%    0.2%  v8::internal::JSObject::GetElementsAccessor()
+      4    0.2%    0.2%  v8::internal::FindOneByteStringIndices(v8::internal::Vector<unsigned char const>, unsigned char, std::vector<int, std::allocator<int> >*, unsigned int)
+      4    0.2%    0.2%  v8::internal::Factory::NewNumberFromUint(unsigned int, v8::internal::PretenureFlag)
+      4    0.2%    0.2%  std::vector<v8::internal::compiler::BasicBlock*, v8::internal::ZoneAllocator<v8::internal::compiler::BasicBlock*> >::_M_default_append(unsigned long)
+      3    0.1%    0.1%  v8::internal::compiler::TopLevelLiveRange::AddUseInterval(v8::internal::compiler::LifetimePosition, v8::internal::compiler::LifetimePosition, v8::internal::Zone*)
+      3    0.1%    0.1%  v8::internal::compiler::LiveRangeConnector::ConnectRanges(v8::internal::Zone*)
+      3    0.1%    0.1%  v8::internal::compiler::LiveRangeBuilder::ComputeLiveOut(v8::internal::compiler::InstructionBlock const*, v8::internal::compiler::RegisterAllocationData*)
+      3    0.1%    0.1%  v8::internal::compiler::LiveRange::DetachAt(v8::internal::compiler::LifetimePosition, v8::internal::compiler::LiveRange*, v8::internal::Zone*, v8::internal::compiler::LiveRange::HintConnectionOption)
+      3    0.1%    0.1%  v8::internal::compiler::LiveRange::CanCover(v8::internal::compiler::LifetimePosition) const
+      3    0.1%    0.1%  v8::internal::compiler::LinearScanAllocator::AllocateBlockedReg(v8::internal::compiler::LiveRange*)
+      3    0.1%    0.1%  v8::internal::compiler::JumpThreading::ComputeForwarding(v8::internal::Zone*, v8::internal::ZoneVector<v8::internal::compiler::RpoNumber>&, v8::internal::compiler::InstructionSequence*, bool)
+      3    0.1%    0.1%  v8::internal::compiler::JumpThreading::ApplyForwarding(v8::internal::ZoneVector<v8::internal::compiler::RpoNumber>&, v8::internal::compiler::InstructionSequence*)
+      3    0.1%    0.1%  v8::internal::compiler::InstructionSelector::SelectInstructions()
+      3    0.1%    0.1%  v8::internal::compiler::InstructionSelector::MarkAsUsed(v8::internal::compiler::Node*)
+      3    0.1%    0.1%  v8::internal::compiler::GapResolver::PerformMove(v8::internal::compiler::ParallelMove*, v8::internal::compiler::MoveOperands*)
+      3    0.1%    0.1%  v8::internal::compiler::CodeGenerator::AssembleMove(v8::internal::compiler::InstructionOperand*, v8::internal::compiler::InstructionOperand*)
+      3    0.1%    0.1%  v8::internal::Runtime_GenerateRandomNumbers(int, v8::internal::Object**, v8::internal::Isolate*)
+      3    0.1%    0.1%  v8::internal::RememberedSetUpdatingItem<v8::internal::MajorNonAtomicMarkingState>::Process()
+      3    0.1%    0.1%  v8::internal::ParserBase<v8::internal::Parser>::ParseAssignmentExpression(bool, bool*)
+      3    0.1%    0.1%  v8::internal::IsMoreGeneralElementsKindTransition(v8::internal::ElementsKind, v8::internal::ElementsKind)
+      3    0.1%    0.1%  v8::internal::Factory::NewJSTypedArray(v8::internal::ExternalArrayType, v8::internal::Handle<v8::internal::JSArrayBuffer>, unsigned long, unsigned long, v8::internal::PretenureFlag)
+      3    0.1%    0.1%  std::_Rb_tree_iterator<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, v8::internal::compiler::Node*> > std::_Rb_tree<v8::internal::compiler::CodeAssemblerVariable::Impl*, std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, v8::internal::compiler::Node*>, std::_Select1st<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, v8::internal::compiler::Node*> >, std::less<v8::internal::compiler::CodeAssemblerVariable::Impl*>, std::allocator<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, v8::internal::compiler::Node*> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<v8::internal::compiler::CodeAssemblerVariable::Impl* const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, v8::internal::compiler::Node*> >, std::piecewise_construct_t const&, std::tuple<v8::internal::compiler::CodeAssemblerVariable::Impl* const&>&&, std::tuple<>&&)
+      3    0.1%    0.1%  brk
+      2    0.1%    0.1%  void v8::internal::LiveObjectVisitor::VisitBlackObjectsNoFail<v8::internal::EvacuateNewSpacePageVisitor<(v8::internal::PageEvacuationMode)1>, v8::internal::MajorNonAtomicMarkingState>(v8::internal::MemoryChunk*, v8::internal::MajorNonAtomicMarkingState*, v8::internal::EvacuateNewSpacePageVisitor<(v8::internal::PageEvacuationMode)1>*, v8::internal::LiveObjectVisitor::IterationMode)
+      2    0.1%    0.1%  void std::vector<v8::internal::compiler::Node*, std::allocator<v8::internal::compiler::Node*> >::_M_realloc_insert<v8::internal::compiler::Node* const&>(__gnu_cxx::__normal_iterator<v8::internal::compiler::Node**, std::vector<v8::internal::compiler::Node*, std::allocator<v8::internal::compiler::Node*> > >, v8::internal::compiler::Node* const&)
+      2    0.1%    0.1%  void std::vector<v8::internal::compiler::BasicBlock*, v8::internal::ZoneAllocator<v8::internal::compiler::BasicBlock*> >::_M_realloc_insert<v8::internal::compiler::BasicBlock* const&>(__gnu_cxx::__normal_iterator<v8::internal::compiler::BasicBlock**, std::vector<v8::internal::compiler::BasicBlock*, v8::internal::ZoneAllocator<v8::internal::compiler::BasicBlock*> > >, v8::internal::compiler::BasicBlock* const&)
+      2    0.1%    0.1%  void std::__introsort_loop<__gnu_cxx::__normal_iterator<v8::internal::compiler::MoveOperands**, std::vector<v8::internal::compiler::MoveOperands*, v8::internal::ZoneAllocator<v8::internal::compiler::MoveOperands*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(v8::internal::compiler::MoveOperands const*, v8::internal::compiler::MoveOperands const*)> >(__gnu_cxx::__normal_iterator<v8::internal::compiler::MoveOperands**, std::vector<v8::internal::compiler::MoveOperands*, v8::internal::ZoneAllocator<v8::internal::compiler::MoveOperands*> > >, __gnu_cxx::__normal_iterator<v8::internal::compiler::MoveOperands**, std::vector<v8::internal::compiler::MoveOperands*, v8::internal::ZoneAllocator<v8::internal::compiler::MoveOperands*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(v8::internal::compiler::MoveOperands const*, v8::internal::compiler::MoveOperands const*)>)
+      2    0.1%    0.1%  v8::internal::compiler::UsePosition::HintRegister(int*) const
+      2    0.1%    0.1%  v8::internal::compiler::SpecialRPONumberer::ComputeLoopInfo(v8::internal::ZoneVector<v8::internal::compiler::SpecialRPONumberer::SpecialRPOStackFrame>&, unsigned long, v8::internal::ZoneVector<std::pair<v8::internal::compiler::BasicBlock*, unsigned long> >*)
+      2    0.1%    0.1%  v8::internal::compiler::SpecialRPONumberer::ComputeAndInsertSpecialRPO(v8::internal::compiler::BasicBlock*, v8::internal::compiler::BasicBlock*)
+      2    0.1%    0.1%  v8::internal::compiler::Schedule::SetBlockForNode(v8::internal::compiler::BasicBlock*, v8::internal::compiler::Node*)
+      2    0.1%    0.1%  v8::internal::compiler::Schedule::EliminateNoopPhiNodes(v8::internal::compiler::BasicBlock*)
+      2    0.1%    0.1%  v8::internal::compiler::RegisterAllocator::SplitAndSpillRangesDefinedByMemoryOperand()
+      2    0.1%    0.1%  v8::internal::compiler::RegisterAllocationData::GetPhiMapValueFor(int)
+      2    0.1%    0.1%  v8::internal::compiler::ReferenceMapPopulator::PopulateReferenceMaps()
+      2    0.1%    0.1%  v8::internal::compiler::OperandGenerator::UseImmediate(v8::internal::compiler::Node*)
+      2    0.1%    0.1%  v8::internal::compiler::OperandAssigner::CommitAssignment()
+      2    0.1%    0.1%  v8::internal::compiler::Node::InsertInput(v8::internal::Zone*, int, v8::internal::compiler::Node*)
+      2    0.1%    0.1%  v8::internal::compiler::Node::AppendUse(v8::internal::compiler::Node::Use*)
+      2    0.1%    0.1%  v8::internal::compiler::MoveOptimizer::Run()
+      2    0.1%    0.1%  v8::internal::compiler::MoveOptimizer::RemoveClobberedDestinations(v8::internal::compiler::Instruction*)
+      2    0.1%    0.1%  v8::internal::compiler::MoveOptimizer::FinalizeMoves(v8::internal::compiler::Instruction*)
+      2    0.1%    0.1%  v8::internal::compiler::MoveOptimizer::CompressMoves(v8::internal::compiler::ParallelMove*, v8::internal::ZoneVector<v8::internal::compiler::MoveOperands*>*)
+      2    0.1%    0.1%  v8::internal::compiler::MoveOptimizer::CompressGaps(v8::internal::compiler::Instruction*)
+      2    0.1%    0.1%  v8::internal::compiler::MoveOptimizer::CompressBlock(v8::internal::compiler::InstructionBlock*)
+      2    0.1%    0.1%  v8::internal::compiler::LiveRangeBuilder::Use(v8::internal::compiler::LifetimePosition, v8::internal::compiler::LifetimePosition, v8::internal::compiler::InstructionOperand*, void*, v8::internal::compiler::UsePositionHintType)
+      2    0.1%    0.1%  v8::internal::compiler::LiveRangeBuilder::ProcessLoopHeader(v8::internal::compiler::InstructionBlock const*, v8::internal::BitVector*)
+      2    0.1%    0.1%  v8::internal::compiler::LiveRangeBuilder::NewUsePosition(v8::internal::compiler::LifetimePosition, v8::internal::compiler::InstructionOperand*, void*, v8::internal::compiler::UsePositionHintType)
+      2    0.1%    0.1%  v8::internal::compiler::LiveRangeBuilder::BuildLiveRanges()
+      2    0.1%    0.1%  v8::internal::compiler::LiveRange::LiveRange(int, v8::internal::MachineRepresentation, v8::internal::compiler::TopLevelLiveRange*)
+      2    0.1%    0.1%  v8::internal::compiler::LiveRange::AdvanceLastProcessedMarker(v8::internal::compiler::UseInterval*, v8::internal::compiler::LifetimePosition) const
+      2    0.1%    0.1%  v8::internal::compiler::LinearScanAllocator::ActiveToInactive(v8::internal::compiler::LiveRange*)
+      2    0.1%    0.1%  v8::internal::compiler::InstructionSelector::SetEffectLevel(v8::internal::compiler::Node*, int)
+      2    0.1%    0.1%  v8::internal::compiler::InstructionSelector::GetVirtualRegister(v8::internal::compiler::Node const*)
+      2    0.1%    0.1%  v8::internal::compiler::InstructionSelector::Emit(int, unsigned long, v8::internal::compiler::InstructionOperand*, unsigned long, v8::internal::compiler::InstructionOperand*, unsigned long, v8::internal::compiler::InstructionOperand*)
+      2    0.1%    0.1%  v8::internal::compiler::InstructionBlock::InstructionBlock(v8::internal::Zone*, v8::internal::compiler::RpoNumber, v8::internal::compiler::RpoNumber, v8::internal::compiler::RpoNumber, bool, bool)
+      2    0.1%    0.1%  v8::internal::compiler::ConstraintBuilder::AllocateFixed(v8::internal::compiler::UnallocatedOperand*, int, bool)
+      2    0.1%    0.1%  v8::internal::compiler::BinopMatcher<v8::internal::compiler::IntMatcher<long, (v8::internal::compiler::IrOpcode::Value)24>, v8::internal::compiler::IntMatcher<long, (v8::internal::compiler::IrOpcode::Value)24> >::BinopMatcher(v8::internal::compiler::Node*, bool)
+      2    0.1%    0.1%  v8::internal::compiler::BaseWithIndexAndDisplacementMatcher<v8::internal::compiler::AddMatcher<v8::internal::compiler::BinopMatcher<v8::internal::compiler::IntMatcher<long, (v8::internal::compiler::IrOpcode::Value)24>, v8::internal::compiler::IntMatcher<long, (v8::internal::compiler::IrOpcode::Value)24> >, (v8::internal::compiler::IrOpcode::Value)284, (v8::internal::compiler::IrOpcode::Value)286, (v8::internal::compiler::IrOpcode::Value)288, (v8::internal::compiler::IrOpcode::Value)280> >::Initialize(v8::internal::compiler::Node*, v8::base::Flags<v8::internal::compiler::AddressOption, unsigned char>)
+      2    0.1%    0.1%  v8::internal::StoreBuffer::InsertDuringRuntime(v8::internal::StoreBuffer*, unsigned long)
+      2    0.1%    0.1%  v8::internal::Scanner::ScanIdentifierOrKeywordInner(v8::internal::Scanner::LiteralScope*)
+      2    0.1%    0.1%  v8::internal::Runtime_GetProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.1%    0.1%  v8::internal::MemoryChunk::Initialize(v8::internal::Heap*, unsigned long, unsigned long, unsigned long, unsigned long, v8::internal::Executability, v8::internal::Space*, v8::internal::VirtualMemory*)
+      2    0.1%    0.1%  v8::internal::Log::MessageBuilder::AppendStringPart(v8::internal::String*, int)
+      2    0.1%    0.1%  v8::internal::JSReceiver::GetPropertyAttributes(v8::internal::LookupIterator*)
+      2    0.1%    0.1%  v8::internal::JSObject::DefineOwnPropertyIgnoreAttributes(v8::internal::LookupIterator*, v8::internal::Handle<v8::internal::Object>, v8::internal::PropertyAttributes, v8::internal::ShouldThrow, v8::internal::JSObject::AccessorInfoHandling)
+      2    0.1%    0.1%  v8::internal::JSObject::DefineOwnPropertyIgnoreAttributes(v8::internal::LookupIterator*, v8::internal::Handle<v8::internal::Object>, v8::internal::PropertyAttributes, v8::internal::JSObject::AccessorInfoHandling)
+      2    0.1%    0.1%  v8::internal::JSArray::WouldChangeReadOnlyLength(v8::internal::Handle<v8::internal::JSArray>, unsigned int)
+      2    0.1%    0.1%  v8::internal::Heap::Scavenge()
+      2    0.1%    0.1%  v8::internal::Factory::NewStringFromUtf8(v8::internal::Vector<char const>, v8::internal::PretenureFlag)
+      2    0.1%    0.1%  v8::internal::Code::CopyFromNoFlush(v8::internal::CodeDesc const&)
+      2    0.1%    0.1%  std::pair<std::_Rb_tree_iterator<std::pair<int const, v8::internal::compiler::Constant> >, bool> std::_Rb_tree<int, std::pair<int const, v8::internal::compiler::Constant>, std::_Select1st<std::pair<int const, v8::internal::compiler::Constant> >, std::less<int>, v8::internal::ZoneAllocator<std::pair<int const, v8::internal::compiler::Constant> > >::_M_emplace_unique<std::pair<int, v8::internal::compiler::Constant> >(std::pair<int, v8::internal::compiler::Constant>&&)
+      2    0.1%    0.1%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+      2    0.1%    0.1%  std::_Rb_tree<v8::internal::compiler::CodeAssemblerVariable::Impl*, std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, v8::internal::compiler::Node*>, std::_Select1st<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, v8::internal::compiler::Node*> >, std::less<v8::internal::compiler::CodeAssemblerVariable::Impl*>, std::allocator<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, v8::internal::compiler::Node*> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, v8::internal::compiler::Node*> >, v8::internal::compiler::CodeAssemblerVariable::Impl* const&)
+      2    0.1%    0.1%  std::_Rb_tree<v8::internal::compiler::CodeAssemblerVariable::Impl*, std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, std::vector<v8::internal::compiler::Node*, std::allocator<v8::internal::compiler::Node*> > >, std::_Select1st<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, std::vector<v8::internal::compiler::Node*, std::allocator<v8::internal::compiler::Node*> > > >, std::less<v8::internal::compiler::CodeAssemblerVariable::Impl*>, std::allocator<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, std::vector<v8::internal::compiler::Node*, std::allocator<v8::internal::compiler::Node*> > > > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, std::vector<v8::internal::compiler::Node*, std::allocator<v8::internal::compiler::Node*> > > >, v8::internal::compiler::CodeAssemblerVariable::Impl* const&)
+      2    0.1%    0.1%  std::_Rb_tree<v8::internal::compiler::CodeAssemblerVariable::Impl*, std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, std::vector<v8::internal::compiler::Node*, std::allocator<v8::internal::compiler::Node*> > >, std::_Select1st<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, std::vector<v8::internal::compiler::Node*, std::allocator<v8::internal::compiler::Node*> > > >, std::less<v8::internal::compiler::CodeAssemblerVariable::Impl*>, std::allocator<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, std::vector<v8::internal::compiler::Node*, std::allocator<v8::internal::compiler::Node*> > > > >::_M_erase(std::_Rb_tree_node<std::pair<v8::internal::compiler::CodeAssemblerVariable::Impl* const, std::vector<v8::internal::compiler::Node*, std::allocator<v8::internal::compiler::Node*> > > >*)
+      2    0.1%    0.1%  int v8::internal::BinarySearch<(v8::internal::SearchMode)1, v8::internal::DescriptorArray>(v8::internal::DescriptorArray*, v8::internal::Name*, int, int*)
+      2    0.1%    0.1%  fwrite
+      2    0.1%    0.1%  __clock_gettime
+      2    0.1%    0.1%  __GI___pthread_mutex_unlock
+      1    0.0%    0.0%  void v8::internal::String::WriteToFlat<unsigned short>(v8::internal::String*, unsigned short*, int, int)
+      1    0.0%    0.0%  void v8::internal::LookupIterator::Start<false>()
+      1    0.0%    0.0%  void v8::internal::BodyDescriptorApply<v8::internal::CallIterateBody, void, v8::internal::Map*, v8::internal::HeapObject*, int, v8::internal::RecordMigratedSlotVisitor*>(v8::internal::InstanceType, v8::internal::Map*, v8::internal::HeapObject*, int, v8::internal::RecordMigratedSlotVisitor*)
+      1    0.0%    0.0%  void std::vector<v8::internal::compiler::RpoNumber, v8::internal::ZoneAllocator<v8::internal::compiler::RpoNumber> >::emplace_back<v8::internal::compiler::RpoNumber>(v8::internal::compiler::RpoNumber&&)
+      1    0.0%    0.0%  void std::vector<v8::internal::compiler::InstructionOperand, v8::internal::ZoneAllocator<v8::internal::compiler::InstructionOperand> >::emplace_back<v8::internal::compiler::InstructionOperand>(v8::internal::compiler::InstructionOperand&&)
+      1    0.0%    0.0%  void std::vector<v8::internal::compiler::InstructionOperand, v8::internal::ZoneAllocator<v8::internal::compiler::InstructionOperand> >::_M_realloc_insert<v8::internal::compiler::InstructionOperand const&>(__gnu_cxx::__normal_iterator<v8::internal::compiler::InstructionOperand*, std::vector<v8::internal::compiler::InstructionOperand, v8::internal::ZoneAllocator<v8::internal::compiler::InstructionOperand> > >, v8::internal::compiler::InstructionOperand const&)
+      1    0.0%    0.0%  void std::vector<v8::internal::compiler::Constant, v8::internal::ZoneAllocator<v8::internal::compiler::Constant> >::_M_realloc_insert<v8::internal::compiler::Constant const&>(__gnu_cxx::__normal_iterator<v8::internal::compiler::Constant*, std::vector<v8::internal::compiler::Constant, v8::internal::ZoneAllocator<v8::internal::compiler::Constant> > >, v8::internal::compiler::Constant const&)
+      1    0.0%    0.0%  void std::__introsort_loop<v8::base::AtomicElement<v8::internal::Smi*>*, long, __gnu_cxx::__ops::_Iter_comp_iter<v8::internal::EnumIndexComparator<v8::internal::NameDictionary> > >(v8::base::AtomicElement<v8::internal::Smi*>*, v8::base::AtomicElement<v8::internal::Smi*>*, long, __gnu_cxx::__ops::_Iter_comp_iter<v8::internal::EnumIndexComparator<v8::internal::NameDictionary> >)
+      1    0.0%    0.0%  void std::__insertion_sort<__gnu_cxx::__normal_iterator<v8::internal::compiler::LiveRange**, std::vector<v8::internal::compiler::LiveRange*, v8::internal::ZoneAllocator<v8::internal::compiler::LiveRange*> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(v8::internal::compiler::LiveRange*, v8::internal::compiler::LiveRange*)> >(__gnu_cxx::__normal_iterator<v8::internal::compiler::LiveRange**, std::vector<v8::internal::compiler::LiveRange*, v8::internal::ZoneAllocator<v8::internal::compiler::LiveRange*> > >, __gnu_cxx::__normal_iterator<v8::internal::compiler::LiveRange**, std::vector<v8::internal::compiler::LiveRange*, v8::internal::ZoneAllocator<v8::internal::compiler::LiveRange*> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(v8::internal::compiler::LiveRange*, v8::internal::compiler::LiveRange*)>)
+      1    0.0%    0.0%  v8::internal::interpreter::RegisterTransferWriter::EmitMov(v8::internal::interpreter::Register, v8::internal::interpreter::Register)
+      1    0.0%    0.0%  v8::internal::interpreter::RegisterTransferWriter::EmitLdar(v8::internal::interpreter::Register)
+      1    0.0%    0.0%  v8::internal::interpreter::InterpreterAssembler::GetInterpretedFramePointer()
+      1    0.0%    0.0%  v8::internal::interpreter::ConstantArrayBuilder::Insert(v8::internal::AstRawString const*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterListFreeEvent(v8::internal::interpreter::RegisterList)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeRegisterOptimizer::Materialize(v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeRegisterOptimizer::GrowRegisterMap(v8::internal::interpreter::Register)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeGenerator::VisitForAccumulatorValue(v8::internal::Expression*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeGenerator::BuildThrowIfHole(v8::internal::Variable*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeArrayWriter::ToBytecodeArray(v8::internal::Isolate*, int, int, v8::internal::Handle<v8::internal::ByteArray>)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeArrayBuilder::GetInputRegisterOperand(v8::internal::interpreter::Register)
+      1    0.0%    0.0%  v8::internal::compiler::ZoneStats::GetCurrentAllocatedBytes() const
+      1    0.0%    0.0%  v8::internal::compiler::X64OperandConverter::MemoryOperand(unsigned long*)
+      1    0.0%    0.0%  v8::internal::compiler::UsePosition::UsePosition(v8::internal::compiler::LifetimePosition, v8::internal::compiler::InstructionOperand*, void*, v8::internal::compiler::UsePositionHintType)
+      1    0.0%    0.0%  v8::internal::compiler::UsePosition::ResolveHint(v8::internal::compiler::UsePosition*)
+      1    0.0%    0.0%  v8::internal::compiler::UsePosition::HasHint() const
+      1    0.0%    0.0%  v8::internal::compiler::Type::SlowIs(v8::internal::compiler::Type) const
+      1    0.0%    0.0%  v8::internal::compiler::TopLevelLiveRange::Splinter(v8::internal::compiler::LifetimePosition, v8::internal::compiler::LifetimePosition, v8::internal::Zone*)
+      1    0.0%    0.0%  v8::internal::compiler::TopLevelLiveRange::ShortenTo(v8::internal::compiler::LifetimePosition)
+      1    0.0%    0.0%  v8::internal::compiler::TopLevelLiveRange::RecordSpillLocation(v8::internal::Zone*, int, v8::internal::compiler::InstructionOperand*)
+      1    0.0%    0.0%  v8::internal::compiler::TopLevelLiveRange::GetSpillRangeOperand() const
+      1    0.0%    0.0%  v8::internal::compiler::TopLevelLiveRange::EnsureInterval(v8::internal::compiler::LifetimePosition, v8::internal::compiler::LifetimePosition, v8::internal::Zone*)
+      1    0.0%    0.0%  v8::internal::compiler::TopLevelLiveRange::AddUsePosition(v8::internal::compiler::UsePosition*)
+      1    0.0%    0.0%  v8::internal::compiler::SpillSlotLocator::LocateSpillSlots()
+      1    0.0%    0.0%  v8::internal::compiler::SpillRange::SpillRange(v8::internal::compiler::TopLevelLiveRange*, v8::internal::Zone*)
+      1    0.0%    0.0%  v8::internal::compiler::Schedule::PropagateDeferredMark()
+      1    0.0%    0.0%  v8::internal::compiler::Schedule::EnsureSplitEdgeForm(v8::internal::compiler::BasicBlock*)
+      1    0.0%    0.0%  v8::internal::compiler::RegisterAllocator::GetSplitPositionForInstruction(v8::internal::compiler::LiveRange const*, int)
+      1    0.0%    0.0%  v8::internal::compiler::RegisterAllocator::FindOptimalSplitPos(v8::internal::compiler::LifetimePosition, v8::internal::compiler::LifetimePosition)
+      1    0.0%    0.0%  v8::internal::compiler::RegisterAllocationData::RegisterAllocationData(v8::internal::RegisterConfiguration const*, v8::internal::Zone*, v8::internal::compiler::Frame*, v8::internal::compiler::InstructionSequence*, char const*)
+      1    0.0%    0.0%  v8::internal::compiler::RegisterAllocationData::NewLiveRange(int, v8::internal::MachineRepresentation)
+      1    0.0%    0.0%  v8::internal::compiler::RegisterAllocationData::MarkAllocated(v8::internal::MachineRepresentation, int)
+      1    0.0%    0.0%  v8::internal::compiler::RegisterAllocationData::GetOrCreateLiveRangeFor(int)
+      1    0.0%    0.0%  v8::internal::compiler::PipelineImpl::SelectInstructions(v8::internal::compiler::Linkage*)
+      1    0.0%    0.0%  v8::internal::compiler::PipelineImpl::AllocateRegisters(v8::internal::RegisterConfiguration const*, v8::internal::compiler::CallDescriptor*, bool)
+      1    0.0%    0.0%  v8::internal::compiler::PhiInstruction::PhiInstruction(v8::internal::Zone*, int, unsigned long)
+      1    0.0%    0.0%  v8::internal::compiler::ParallelMove::PrepareInsertAfter(v8::internal::compiler::MoveOperands*, v8::internal::ZoneVector<v8::internal::compiler::MoveOperands*>*) const
+      1    0.0%    0.0%  v8::internal::compiler::ParallelMove::IsRedundant() const
+      1    0.0%    0.0%  v8::internal::compiler::OperandAssigner::AssignSpillSlots()
+      1    0.0%    0.0%  v8::internal::compiler::NodeProperties::PastFrameStateIndex(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::Node::Node(unsigned int, v8::internal::compiler::Operator const*, int, int)
+      1    0.0%    0.0%  v8::internal::compiler::Node* v8::internal::compiler::CodeAssembler::TailCallBytecodeDispatch<v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*>(v8::internal::CallInterfaceDescriptor const&, v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::MachineOperatorGlobalCache::Float64LessThanOperator::Float64LessThanOperator()
+      1    0.0%    0.0%  v8::internal::compiler::MachineOperatorBuilder::Load(v8::internal::MachineType)
+      1    0.0%    0.0%  v8::internal::compiler::LiveRangeMerger::Merge()
+      1    0.0%    0.0%  v8::internal::compiler::LiveRangeMerger::MarkRangesSpilledInDeferredBlocks()
+      1    0.0%    0.0%  v8::internal::compiler::LiveRangeBuilder::ResolvePhiHint(v8::internal::compiler::InstructionOperand*, v8::internal::compiler::UsePosition*)
+      1    0.0%    0.0%  v8::internal::compiler::LiveRangeBuilder::FixedLiveRangeFor(int)
+      1    0.0%    0.0%  v8::internal::compiler::LiveRangeBuilder::Define(v8::internal::compiler::LifetimePosition, v8::internal::compiler::InstructionOperand*, void*, v8::internal::compiler::UsePositionHintType)
+      1    0.0%    0.0%  v8::internal::compiler::LiveRange::UpdateParentForAllChildren(v8::internal::compiler::TopLevelLiveRange*)
+      1    0.0%    0.0%  v8::internal::compiler::LiveRange::SetUseHints(int)
+      1    0.0%    0.0%  v8::internal::compiler::LiveRange::FirstHintPosition(int*) const
+      1    0.0%    0.0%  v8::internal::compiler::Linkage::GetRuntimeCallDescriptor(v8::internal::Zone*, v8::internal::Runtime::FunctionId, int, v8::base::Flags<v8::internal::compiler::Operator::Property, unsigned char>, v8::base::Flags<v8::internal::compiler::CallDescriptor::Flag, int>)
+      1    0.0%    0.0%  v8::internal::compiler::Linkage::GetBytecodeDispatchCallDescriptor(v8::internal::Isolate*, v8::internal::Zone*, v8::internal::CallInterfaceDescriptor const&, int)
+      1    0.0%    0.0%  v8::internal::compiler::LinearScanAllocator::TryReuseSpillForPhi(v8::internal::compiler::TopLevelLiveRange*)
+      1    0.0%    0.0%  v8::internal::compiler::LinearScanAllocator::SetLiveRangeAssignedRegister(v8::internal::compiler::LiveRange*, int)
+      1    0.0%    0.0%  v8::internal::compiler::LinearScanAllocator::AddToActive(v8::internal::compiler::LiveRange*)
+      1    0.0%    0.0%  v8::internal::compiler::JSTypedLowering::ReduceSpeculativeNumberComparison(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSequence::InstructionBlocksFor(v8::internal::Zone*, v8::internal::compiler::Schedule const*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSequence::EndBlock(v8::internal::compiler::RpoNumber)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSequence::AddInstruction(v8::internal::compiler::Instruction*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::VisitStore(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::VisitProjection(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::VisitPhi(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::VisitNode(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::VisitInt64Add(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::VisitGoto(v8::internal::compiler::BasicBlock*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::VisitControl(v8::internal::compiler::BasicBlock*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::UpdateRenames(v8::internal::compiler::Instruction*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::TryRename(v8::internal::compiler::InstructionOperand*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::MarkAsDefined(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::IsUsed(v8::internal::compiler::Node*) const
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::InstructionSelector(v8::internal::Zone*, unsigned long, v8::internal::compiler::Linkage*, v8::internal::compiler::InstructionSequence*, v8::internal::compiler::Schedule*, v8::internal::compiler::SourcePositionTable*, v8::internal::compiler::Frame*, v8::internal::compiler::InstructionSelector::EnableSwitchJumpTable, v8::internal::compiler::InstructionSelector::SourcePositionMode, v8::internal::compiler::InstructionSelector::Features, v8::internal::compiler::InstructionSelector::EnableScheduling, v8::internal::compiler::InstructionSelector::EnableSerialization, v8::internal::PoisoningMitigationLevel)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::InitializeCallBuffer(v8::internal::compiler::Node*, v8::internal::compiler::CallBuffer*, v8::base::Flags<v8::internal::compiler::InstructionSelector::CallBufferFlag, int>, bool, int)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionSelector::EmitPrepareArguments(v8::internal::ZoneVector<v8::internal::compiler::PushParameter>*, v8::internal::compiler::CallDescriptor const*, v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::InstructionOperand::InterferesWith(v8::internal::compiler::InstructionOperand const&) const
+      1    0.0%    0.0%  v8::internal::compiler::InstructionBlock::PredecessorIndexOf(v8::internal::compiler::RpoNumber) const
+      1    0.0%    0.0%  v8::internal::compiler::GraphTrimmer::TrimGraph()
+      1    0.0%    0.0%  v8::internal::compiler::GraphReducer::ReduceTop()
+      1    0.0%    0.0%  v8::internal::compiler::Graph::NewNodeUnchecked(v8::internal::compiler::Operator const*, int, v8::internal::compiler::Node* const*, bool)
+      1    0.0%    0.0%  v8::internal::compiler::GapResolver::Resolve(v8::internal::compiler::ParallelMove*)
+      1    0.0%    0.0%  v8::internal::compiler::FrameElider::MarkBlocks()
+      1    0.0%    0.0%  v8::internal::compiler::FrameAccessState::SetFrameAccessToDefault()
+      1    0.0%    0.0%  v8::internal::compiler::ConstraintBuilder::MeetConstraintsAfter(int)
+      1    0.0%    0.0%  v8::internal::compiler::CommonOperatorBuilder::Phi(v8::internal::MachineRepresentation, int)
+      1    0.0%    0.0%  v8::internal::compiler::CodeGenerator::IsMaterializableFromRoot(v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Heap::RootListIndex*)
+      1    0.0%    0.0%  v8::internal::compiler::CodeGenerator::ComputeBranchInfo(v8::internal::compiler::BranchInfo*, v8::internal::compiler::Instruction*)
+      1    0.0%    0.0%  v8::internal::compiler::CodeGenerator::AssembleInstruction(v8::internal::compiler::Instruction*, v8::internal::compiler::InstructionBlock const*)
+      1    0.0%    0.0%  v8::internal::compiler::CodeGenerator::AssembleGaps(v8::internal::compiler::Instruction*)
+      1    0.0%    0.0%  v8::internal::compiler::CodeGenerator::AssembleCode()
+      1    0.0%    0.0%  v8::internal::compiler::CodeGenerator::AssembleBlock(v8::internal::compiler::InstructionBlock const*)
+      1    0.0%    0.0%  v8::internal::compiler::CodeGenerator::AssembleArchInstruction(v8::internal::compiler::Instruction*)
+      1    0.0%    0.0%  v8::internal::compiler::CodeAssemblerVariable::Bind(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::CodeAssemblerLabel::~CodeAssemblerLabel()
+      1    0.0%    0.0%  v8::internal::compiler::CodeAssembler::raw_assembler() const
+      1    0.0%    0.0%  v8::internal::compiler::CodeAssembler::ToIntPtrConstant(v8::internal::compiler::Node*, long&)
+      1    0.0%    0.0%  v8::internal::compiler::CodeAssembler::LoadRoot(v8::internal::Heap::RootListIndex)
+      1    0.0%    0.0%  v8::internal::compiler::CodeAssembler::IntPtrAddWithOverflow(v8::internal::compiler::SloppyTNode<v8::internal::IntPtrT>, v8::internal::compiler::SloppyTNode<v8::internal::IntPtrT>)
+      1    0.0%    0.0%  v8::internal::compiler::CallDescriptor::GetFirstUnusedStackSlot() const
+      1    0.0%    0.0%  v8::internal::compiler::BasicBlock::BasicBlock(v8::internal::Zone*, v8::internal::compiler::BasicBlock::Id)
+      1    0.0%    0.0%  v8::internal::compiler::BasicBlock::AddSuccessor(v8::internal::compiler::BasicBlock*)
+      1    0.0%    0.0%  v8::internal::Zone::~Zone()
+      1    0.0%    0.0%  v8::internal::StubCache::Clear()
+      1    0.0%    0.0%  v8::internal::StringTable::LookupStringIfExists_NoAllocate(v8::internal::String*)
+      1    0.0%    0.0%  v8::internal::String::SlowEquals(v8::internal::String*)
+      1    0.0%    0.0%  v8::internal::String::IsOneByteEqualTo(v8::internal::Vector<unsigned char const>)
+      1    0.0%    0.0%  v8::internal::String::ComputeArrayIndex(unsigned int*)
+      1    0.0%    0.0%  v8::internal::String::CalculateLineEnds(v8::internal::Handle<v8::internal::String>, bool)
+      1    0.0%    0.0%  v8::internal::StoreBuffer::MoveEntriesToRememberedSet(int)
+      1    0.0%    0.0%  v8::internal::Scanner::PeekAhead()
+      1    0.0%    0.0%  v8::internal::Scanner::Next()
+      1    0.0%    0.0%  v8::internal::RuntimeProfiler::MarkCandidatesForOptimization()
+      1    0.0%    0.0%  v8::internal::RelocIterator::RelocIterator(v8::internal::Code*, unsigned long, unsigned long, unsigned char const*, unsigned char const*, int)
+      1    0.0%    0.0%  v8::internal::RegExpParser::Advance()
+      1    0.0%    0.0%  v8::internal::ParserBase<v8::internal::Parser>::ParseUnaryExpression(bool*)
+      1    0.0%    0.0%  v8::internal::ParserBase<v8::internal::Parser>::ParseMemberExpressionContinuation(v8::internal::Expression*, bool*, bool*)
+      1    0.0%    0.0%  v8::internal::ParseInfo::ResetCharacterStream()
+      1    0.0%    0.0%  v8::internal::ParseInfo::ParseInfo(v8::internal::Handle<v8::internal::SharedFunctionInfo>)
+      1    0.0%    0.0%  v8::internal::ParseInfo::InitFromIsolate(v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::PagedSpace::DecreaseLimit(unsigned long)
+      1    0.0%    0.0%  v8::internal::Operand::Operand(v8::internal::Register, int)
+      1    0.0%    0.0%  v8::internal::OFStreamBase::xsputn(char const*, long)
+      1    0.0%    0.0%  v8::internal::MarkCompactCollector::ClearWeakReferences()
+      1    0.0%    0.0%  v8::internal::MapUpdater::BuildDescriptorArray()
+      1    0.0%    0.0%  v8::internal::Map::ShareDescriptor(v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::DescriptorArray>, v8::internal::Descriptor*)
+      1    0.0%    0.0%  v8::internal::Map::EnsureDescriptorSlack(v8::internal::Handle<v8::internal::Map>, int)
+      1    0.0%    0.0%  v8::internal::Map::CopyReplaceDescriptors(v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::DescriptorArray>, v8::internal::Handle<v8::internal::LayoutDescriptor>, v8::internal::TransitionFlag, v8::internal::MaybeHandle<v8::internal::Name>, char const*, v8::internal::SimpleTransitionFlag)
+      1    0.0%    0.0%  v8::internal::Map::CopyDropDescriptors(v8::internal::Handle<v8::internal::Map>)
+      1    0.0%    0.0%  v8::internal::LookupIterator::GetDataValue() const
+      1    0.0%    0.0%  v8::internal::Log::MessageBuilder::AppendCharacter(char)
+      1    0.0%    0.0%  v8::internal::JSReceiver::GetPrototype(v8::internal::Isolate*, v8::internal::Handle<v8::internal::JSReceiver>)
+      1    0.0%    0.0%  v8::internal::JSObject::ValidateElements(v8::internal::JSObject*)
+      1    0.0%    0.0%  v8::internal::JSObject::MigrateToMap(v8::internal::Handle<v8::internal::JSObject>, v8::internal::Handle<v8::internal::Map>, int)
+      1    0.0%    0.0%  v8::internal::InternalizedStringTableCleaner::VisitPointers(v8::internal::HeapObject*, v8::internal::Object**, v8::internal::Object**)
+      1    0.0%    0.0%  v8::internal::IncrementalMarking::UpdateMarkingWorklistAfterScavenge()
+      1    0.0%    0.0%  v8::internal::Heap::RegisterNewArrayBuffer(v8::internal::JSArrayBuffer*)
+      1    0.0%    0.0%  v8::internal::Heap::MapForFixedTypedArray(v8::internal::ExternalArrayType)
+      1    0.0%    0.0%  v8::internal::HashTable<v8::internal::StringTable, v8::internal::StringTableShape>::FindInsertionEntry(unsigned int)
+      1    0.0%    0.0%  v8::internal::FreeList::AddCategory(v8::internal::FreeListCategory*)
+      1    0.0%    0.0%  v8::internal::Factory::TryNewCode(v8::internal::CodeDesc const&, v8::internal::Code::Kind, v8::internal::Handle<v8::internal::Object>, int, v8::internal::MaybeHandle<v8::internal::ByteArray>, v8::internal::MaybeHandle<v8::internal::DeoptimizationData>, v8::internal::Movability, unsigned int, bool, int, int, int)
+      1    0.0%    0.0%  v8::internal::Factory::NewFeedbackVector(v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::PretenureFlag)
+      1    0.0%    0.0%  v8::internal::ContextSlotCache::Lookup(v8::internal::Object*, v8::internal::String*, v8::internal::VariableMode*, v8::internal::InitializationFlag*, v8::internal::MaybeAssignedFlag*)
+      1    0.0%    0.0%  v8::internal::CodeStubAssembler::IsUndefined(v8::internal::compiler::SloppyTNode<v8::internal::Object>)
+      1    0.0%    0.0%  v8::internal::CodeStub::MajorName(v8::internal::CodeStub::Major)
+      1    0.0%    0.0%  v8::internal::Code::WeakCellFor(v8::internal::Handle<v8::internal::Code>)
+      1    0.0%    0.0%  v8::internal::CanonicalHandleScope::Lookup(v8::internal::Object*)
+      1    0.0%    0.0%  v8::internal::Builtin_CallSitePrototypeIsNative(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::AstValueFactory::GetString(unsigned int, bool, v8::internal::Vector<unsigned char const>)
+      1    0.0%    0.0%  v8::internal::AstValueFactory::GetOneByteStringInternal(v8::internal::Vector<unsigned char const>)
+      1    0.0%    0.0%  v8::internal::Assembler::movq(v8::internal::Register, long, v8::internal::RelocInfo::Mode)
+      1    0.0%    0.0%  v8::internal::Assembler::immediate_arithmetic_op(unsigned char, v8::internal::Register, v8::internal::Immediate, int)
+      1    0.0%    0.0%  v8::internal::Assembler::emit_operand(int, v8::internal::Operand)
+      1    0.0%    0.0%  v8::internal::Assembler::emit_mov(v8::internal::Register, v8::internal::Operand, int)
+      1    0.0%    0.0%  v8::internal::Assembler::bind_to(v8::internal::Label*, int)
+      1    0.0%    0.0%  v8::internal::AccountingAllocator::AllocateSegment(unsigned long)
+      1    0.0%    0.0%  v8::internal::Accessors::FunctionPrototypeGetter(v8::Local<v8::Name>, v8::PropertyCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  v8::internal::Accessors::FunctionLengthGetter(v8::Local<v8::Name>, v8::PropertyCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  v8::base::internal::CheckedNumeric<v8::base::internal::ArithmeticPromotion<long, long, ((v8::base::internal::MaxExponent<long>::value>v8::base::internal::MaxExponent<long>::value))?(((v8::base::internal::MaxExponent<long>::value>v8::base::internal::MaxExponent<int>::value))?((v8::base::internal::ArithmeticPromotionCategory)0) : ((v8::base::internal::ArithmeticPromotionCategory)2)) : (((v8::base::internal::MaxExponent<long>::value>v8::base::internal::MaxExponent<int>::value))?((v8::base::internal::ArithmeticPromotionCategory)1) : ((v8::base::internal::ArithmeticPromotionCategory)2))>::type> v8::base::internal::operator*<long>(v8::base::internal::CheckedNumeric<long> const&, v8::base::internal::CheckedNumeric<long> const&)
+      1    0.0%    0.0%  v8::base::hash_value(unsigned long)
+      1    0.0%    0.0%  v8::base::TemplateHashMapImpl<void*, void*, v8::base::KeyEqualityMatcher<void*>, v8::internal::ZoneAllocationPolicy>::FillEmptyEntry(v8::base::TemplateHashMapEntry<void*, void*>*, void* const&, void* const&, unsigned int, v8::internal::ZoneAllocationPolicy)
+      1    0.0%    0.0%  v8::base::TemplateHashMapImpl<long, unsigned int, v8::base::KeyEqualityMatcher<long>, v8::internal::ZoneAllocationPolicy>::FillEmptyEntry(v8::base::TemplateHashMapEntry<long, unsigned int>*, long const&, unsigned int const&, unsigned int, v8::internal::ZoneAllocationPolicy)
+      1    0.0%    0.0%  v8::TryCatch::ResetInternal()
+      1    0.0%    0.0%  v8::ArrayBuffer::New(v8::Isolate*, void*, unsigned long, v8::ArrayBufferCreationMode)
+      1    0.0%    0.0%  unibrow::Utf8Iterator::operator++()
+      1    0.0%    0.0%  std::vector<v8::internal::compiler::SpecialRPONumberer::SpecialRPOStackFrame, v8::internal::ZoneAllocator<v8::internal::compiler::SpecialRPONumberer::SpecialRPOStackFrame> >::_M_default_append(unsigned long)
+      1    0.0%    0.0%  std::vector<v8::internal::compiler::MoveOperands*, v8::internal::ZoneAllocator<v8::internal::compiler::MoveOperands*> >::reserve(unsigned long)
+      1    0.0%    0.0%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const
+      1    0.0%    0.0%  std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const
+      1    0.0%    0.0%  std::locale::id::_M_id() const
+      1    0.0%    0.0%  std::ios_base::_M_dispose_callbacks()
+      1    0.0%    0.0%  std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long)
+      1    0.0%    0.0%  std::_Rb_tree_rebalance_for_erase(std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)
+      1    0.0%    0.0%  std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)
+      1    0.0%    0.0%  std::_Hashtable<v8::internal::JSArrayBuffer*, std::pair<v8::internal::JSArrayBuffer* const, unsigned long>, std::allocator<std::pair<v8::internal::JSArrayBuffer* const, unsigned long> >, std::__detail::_Select1st, std::equal_to<v8::internal::JSArrayBuffer*>, v8::internal::LocalArrayBufferTracker::Hasher, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_find_before_node(unsigned long, v8::internal::JSArrayBuffer* const&, unsigned long) const
+      1    0.0%    0.0%  std::_Deque_base<v8::internal::Map*, v8::internal::RecyclingZoneAllocator<v8::internal::Map*> >::_M_initialize_map(unsigned long)
+      1    0.0%    0.0%  std::_Deque_base<int, v8::internal::RecyclingZoneAllocator<int> >::_M_initialize_map(unsigned long)
+      1    0.0%    0.0%  std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long)
+      1    0.0%    0.0%  operator new[](unsigned long)
+      1    0.0%    0.0%  operator delete(void*)
+      1    0.0%    0.0%  node::fs::Access(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  node::HandleWrap::Close(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  do_futex_wait.constprop.0
+      1    0.0%    0.0%  cfree
+      1    0.0%    0.0%  __lll_lock_wait
+      1    0.0%    0.0%  __libc_realloc
+
+ [Summary]:
+   ticks  total  nonlib   name
+   1092   42.1%   46.7%  JavaScript
+   1220   47.0%   52.2%  C++
+    195    7.5%    8.3%  GC
+    255    9.8%          Shared libraries
+     26    1.0%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+    152   22.1%    5.9%  v8::internal::Runtime_StringSplit(int, v8::internal::Object**, v8::internal::Isolate*)
+    110   16.0%    4.2%  v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     98   14.2%    3.8%  v8::internal::Runtime_CreateDataProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+     97   14.1%    3.7%  v8::internal::Runtime_StringToNumber(int, v8::internal::Object**, v8::internal::Isolate*)
+     75   10.9%    2.9%  v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*)
+     54    7.8%    2.1%  v8::internal::Runtime_GetProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+     35    5.1%    1.3%  v8::internal::Runtime_CompileLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      6    0.9%    0.2%  v8::internal::Runtime_StackGuard(int, v8::internal::Object**, v8::internal::Isolate*)
+      5    0.7%    0.2%  v8::internal::Runtime_StoreIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      5    0.7%    0.2%  v8::internal::Runtime_CompileOptimized_Concurrent(int, v8::internal::Object**, v8::internal::Isolate*)
+      5    0.7%    0.2%  v8::internal::Runtime_CompileForOnStackReplacement(int, v8::internal::Object**, v8::internal::Isolate*)
+      4    0.6%    0.2%  v8::internal::StringSearch<unsigned char, unsigned char>::LinearSearch(v8::internal::StringSearch<unsigned char, unsigned char>*, v8::internal::Vector<unsigned char const>, int)
+      4    0.6%    0.2%  v8::internal::Runtime_NewArray(int, v8::internal::Object**, v8::internal::Isolate*)
+      4    0.6%    0.2%  v8::internal::Runtime_CompileOptimized_NotConcurrent(int, v8::internal::Object**, v8::internal::Isolate*)
+      3    0.4%    0.1%  v8::internal::Runtime_GenerateRandomNumbers(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.3%    0.1%  v8::internal::Runtime_TransitionElementsKind(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.3%    0.1%  v8::internal::Runtime_KeyedStoreIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.3%    0.1%  v8::internal::Runtime_KeyedLoadIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.3%    0.1%  v8::internal::Runtime_DefineClass(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.3%    0.1%  v8::internal::Factory::NewStringFromUtf8(v8::internal::Vector<char const>, v8::internal::PretenureFlag)
+      2    0.3%    0.1%  v8::internal::Builtin_JsonParse(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.3%    0.1%  v8::internal::Builtin_FunctionConstructor(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::interpreter::BytecodeRegisterOptimizer::GrowRegisterMap(v8::internal::interpreter::Register)
+      1    0.1%    0.0%  v8::internal::StringTable::LookupStringIfExists_NoAllocate(v8::internal::String*)
+      1    0.1%    0.0%  v8::internal::Runtime_SetProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Runtime_RegExpInitializeAndCompile(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Runtime_RegExpExec(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Runtime_PrepareElementsForSort(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Runtime_NotifyDeoptimized(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Runtime_NewClosure(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Runtime_LoadIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Runtime_Interrupt(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Runtime_GetOwnPropertyDescriptor(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Runtime_ForInHasProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Builtin_ObjectGetPrototypeOf(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Builtin_ObjectDefineProperties(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Builtin_CallSitePrototypeIsNative(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  v8::internal::Builtin_ArrayConcat(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+    318   12.3%  LazyCompile: ~QuickSort native array.js:530:19
+    199   62.6%    LazyCompile: ~InnerArraySort native array.js:486:24
+    199  100.0%      LazyCompile: ~sort native array.js:610:46
+    198   99.5%        LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+    198  100.0%          LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+    198  100.0%            LazyCompile: ~main /home/michael/webdev/node_vs_c/app.js:86:20
+    119   37.4%    LazyCompile: ~QuickSort native array.js:530:19
+     81   68.1%      LazyCompile: ~InnerArraySort native array.js:486:24
+     81  100.0%        LazyCompile: ~sort native array.js:610:46
+     79   97.5%          LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+     79  100.0%            LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+      2    2.5%          LazyCompile: ~GetThirdIndex native array.js:514:23
+      2  100.0%            LazyCompile: ~QuickSort native array.js:530:19
+     38   31.9%      LazyCompile: ~QuickSort native array.js:530:19
+     38  100.0%        LazyCompile: ~InnerArraySort native array.js:486:24
+     38  100.0%          LazyCompile: ~sort native array.js:610:46
+     36   94.7%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      2    5.3%            LazyCompile: ~GetThirdIndex native array.js:514:23
+
+    221    8.5%  LazyCompile: *QuickSort native array.js:530:19
+    187   84.6%    LazyCompile: *QuickSort native array.js:530:19
+    149   79.7%      LazyCompile: *QuickSort native array.js:530:19
+    104   69.8%        LazyCompile: *QuickSort native array.js:530:19
+     72   69.2%          LazyCompile: *QuickSort native array.js:530:19
+     46   63.9%            LazyCompile: *QuickSort native array.js:530:19
+     26   36.1%            LazyCompile: ~QuickSort native array.js:530:19
+     32   30.8%          LazyCompile: ~QuickSort native array.js:530:19
+     17   53.1%            LazyCompile: ~InnerArraySort native array.js:486:24
+     15   46.9%            LazyCompile: ~QuickSort native array.js:530:19
+     45   30.2%        LazyCompile: ~QuickSort native array.js:530:19
+     24   53.3%          LazyCompile: ~InnerArraySort native array.js:486:24
+     24  100.0%            LazyCompile: ~sort native array.js:610:46
+     21   46.7%          LazyCompile: ~QuickSort native array.js:530:19
+     12   57.1%            LazyCompile: ~InnerArraySort native array.js:486:24
+      9   42.9%            LazyCompile: ~QuickSort native array.js:530:19
+     38   20.3%      LazyCompile: ~QuickSort native array.js:530:19
+     21   55.3%        LazyCompile: ~InnerArraySort native array.js:486:24
+     21  100.0%          LazyCompile: ~sort native array.js:610:46
+     21  100.0%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+     17   44.7%        LazyCompile: ~QuickSort native array.js:530:19
+      9   52.9%          LazyCompile: ~InnerArraySort native array.js:486:24
+      9  100.0%            LazyCompile: ~sort native array.js:610:46
+      8   47.1%          LazyCompile: ~QuickSort native array.js:530:19
+      8  100.0%            LazyCompile: ~InnerArraySort native array.js:486:24
+     33   14.9%    LazyCompile: ~QuickSort native array.js:530:19
+     25   75.8%      LazyCompile: ~InnerArraySort native array.js:486:24
+     25  100.0%        LazyCompile: ~sort native array.js:610:46
+     24   96.0%          LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+     24  100.0%            LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+      1    4.0%          LazyCompile: ~GetThirdIndex native array.js:514:23
+      1  100.0%            LazyCompile: ~QuickSort native array.js:530:19
+      8   24.2%      LazyCompile: ~QuickSort native array.js:530:19
+      7   87.5%        LazyCompile: ~InnerArraySort native array.js:486:24
+      7  100.0%          LazyCompile: ~sort native array.js:610:46
+      7  100.0%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      1   12.5%        LazyCompile: ~QuickSort native array.js:530:19
+      1  100.0%          LazyCompile: ~InnerArraySort native array.js:486:24
+      1  100.0%            LazyCompile: ~sort native array.js:610:46
+
+    159    6.1%  /usr/lib/x86_64-linux-gnu/libnode.so.64
+     70   44.0%    v8::internal::Runtime_StringToNumber(int, v8::internal::Object**, v8::internal::Isolate*)
+     70  100.0%      Builtin: NumberConstructor
+     37   52.9%        LazyCompile: *InsertionSort native array.js:499:23
+     37  100.0%          LazyCompile: ~emit events.js:147:44
+     37  100.0%            LazyCompile: ~addChunk _stream_readable.js:285:18
+     30   42.9%        LazyCompile: *onStreamRead internal/stream_base_commons.js:87:22
+     30  100.0%          Builtin: ArrayMap
+     30  100.0%            LazyCompile: ~cText /home/michael/webdev/node_vs_c/app.js:26:21
+      2    2.9%        LazyCompile: *strarray.map.x /home/michael/webdev/node_vs_c/app.js:45:33
+      2  100.0%          Builtin: ArrayMap
+      2  100.0%            LazyCompile: ~proc.stdout.on /home/michael/webdev/node_vs_c/app.js:43:26
+      1    1.4%        LazyCompile: ~strarray.map.x /home/michael/webdev/node_vs_c/app.js:45:33
+      1  100.0%          Builtin: ArrayMap
+      1  100.0%            LazyCompile: ~proc.stdout.on /home/michael/webdev/node_vs_c/app.js:43:26
+     35   22.0%    v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     14   40.0%      LazyCompile: ~ChildProcess.spawn internal/child_process.js:299:40
+     14  100.0%        LazyCompile: ~spawn child_process.js:544:43
+      6   42.9%          LazyCompile: ~_bluebird.default /home/michael/webdev/node_vs_c/node_modules/teen_process/build/lib/exec.js:41:38
+      6  100.0%            LazyCompile: ~Promise._execute /home/michael/webdev/node_vs_c/node_modules/bluebird/js/release/debuggability.js:382:38
+      4   28.6%          LazyCompile: ~asyncCText /home/michael/webdev/node_vs_c/app.js:38:26
+      4  100.0%            LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+      4   28.6%          LazyCompile: ~asyncCBinary /home/michael/webdev/node_vs_c/app.js:71:28
+      4  100.0%            LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+     10   28.6%      LazyCompile: ~stringSlice buffer.js:588:21
+     10  100.0%        LazyCompile: ~toString buffer.js:642:46
+      8   80.0%          LazyCompile: ~getStdio /home/michael/webdev/node_vs_c/node_modules/teen_process/build/lib/exec.js:107:22
+      8  100.0%            LazyCompile: ~proc.on.code /home/michael/webdev/node_vs_c/node_modules/teen_process/build/lib/exec.js:124:22
+      2   20.0%          LazyCompile: ~readFileSync fs.js:340:22
+      2  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:787:37
+      8   22.9%      LazyCompile: ~concat buffer.js:454:32
+      8  100.0%        LazyCompile: ~getStdio /home/michael/webdev/node_vs_c/node_modules/teen_process/build/lib/exec.js:107:22
+      8  100.0%          LazyCompile: ~proc.on.code /home/michael/webdev/node_vs_c/node_modules/teen_process/build/lib/exec.js:124:22
+      8  100.0%            LazyCompile: ~emit events.js:147:44
+      2    5.7%      LazyCompile: ~binding internal/bootstrap/loaders.js:77:39
+      1   50.0%        Script: ~<anonymous> internal/util.js:1:11
+      1  100.0%          LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      1  100.0%            LazyCompile: ~NativeModule.require internal/bootstrap/loaders.js:150:34
+      1   50.0%        LazyCompile: ~internalBinding internal/bootstrap/loaders.js:100:47
+      1  100.0%          Script: ~<anonymous> internal/async_hooks.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      1    2.9%      LazyCompile: ~internalBinding internal/bootstrap/loaders.js:100:47
+      1  100.0%        Script: ~<anonymous> internal/util/inspect.js:1:11
+      1  100.0%          LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      1  100.0%            LazyCompile: ~NativeModule.require internal/bootstrap/loaders.js:150:34
+     20   12.6%    v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*)
+      6   30.0%      LazyCompile: *jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      6  100.0%        LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+      6  100.0%          LazyCompile: ~main /home/michael/webdev/node_vs_c/app.js:86:20
+      6  100.0%            Eval: ~<anonymous> /home/michael/webdev/node_vs_c/app.js:1:1
+      6   30.0%      LazyCompile: *InsertionSort native array.js:499:23
+      6  100.0%        LazyCompile: ~emit events.js:147:44
+      6  100.0%          LazyCompile: ~addChunk _stream_readable.js:285:18
+      6  100.0%            LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      5   25.0%      LazyCompile: *proc.stdout.on /home/michael/webdev/node_vs_c/app.js:76:26
+      5  100.0%        LazyCompile: ~emit events.js:147:44
+      5  100.0%          LazyCompile: ~addChunk _stream_readable.js:285:18
+      5  100.0%            LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      3   15.0%      LazyCompile: *cBinary /home/michael/webdev/node_vs_c/app.js:55:23
+      3  100.0%        Builtin: AsyncFunctionAwaitResolveClosure
+      7    4.4%    v8::internal::Runtime_GetProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      7  100.0%      Builtin: ArrayMap
+      7  100.0%        LazyCompile: ~cText /home/michael/webdev/node_vs_c/app.js:26:21
+      7  100.0%          Builtin: AsyncFunctionAwaitResolveClosure
+      5    3.1%    v8::internal::Runtime_CreateDataProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      5  100.0%      Builtin: ArrayMap
+      5  100.0%        LazyCompile: ~cText /home/michael/webdev/node_vs_c/app.js:26:21
+      5  100.0%          Builtin: AsyncFunctionAwaitResolveClosure
+      3    1.9%    Builtin: StringPrototypeReplace
+      2   66.7%      LazyCompile: *InsertionSort native array.js:499:23
+      2  100.0%        LazyCompile: ~emit events.js:147:44
+      2  100.0%          LazyCompile: ~addChunk _stream_readable.js:285:18
+      2  100.0%            LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      1   33.3%      LazyCompile: ~cText /home/michael/webdev/node_vs_c/app.js:26:21
+      1  100.0%        Builtin: AsyncFunctionAwaitResolveClosure
+      2    1.3%    v8::internal::Runtime_TransitionElementsKind(int, v8::internal::Object**, v8::internal::Isolate*)
+      1   50.0%      LazyCompile: *proc.stdout.on /home/michael/webdev/node_vs_c/app.js:43:26
+      1  100.0%        LazyCompile: ~emit events.js:147:44
+      1  100.0%          LazyCompile: ~addChunk _stream_readable.js:285:18
+      1  100.0%            LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      1   50.0%      LazyCompile: *InsertionSort native array.js:499:23
+      1  100.0%        LazyCompile: ~emit events.js:147:44
+      1  100.0%          LazyCompile: ~addChunk _stream_readable.js:285:18
+      1  100.0%            LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      2    1.3%    v8::internal::Runtime_CompileForOnStackReplacement(int, v8::internal::Object**, v8::internal::Isolate*)
+      1   50.0%      LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      1  100.0%        LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+      1  100.0%          LazyCompile: ~main /home/michael/webdev/node_vs_c/app.js:86:20
+      1  100.0%            Eval: ~<anonymous> /home/michael/webdev/node_vs_c/app.js:1:1
+      1   50.0%      LazyCompile: ~cBinary /home/michael/webdev/node_vs_c/app.js:55:23
+      1  100.0%        Builtin: AsyncFunctionAwaitResolveClosure
+
+     96    3.7%  /lib/x86_64-linux-gnu/libc-2.31.so
+     21   21.9%    v8::internal::Runtime_StringSplit(int, v8::internal::Object**, v8::internal::Isolate*)
+     21  100.0%      Builtin: StringPrototypeSplit
+     11   52.4%        LazyCompile: *InsertionSort native array.js:499:23
+     11  100.0%          LazyCompile: ~emit events.js:147:44
+     11  100.0%            LazyCompile: ~addChunk _stream_readable.js:285:18
+     10   47.6%        LazyCompile: ~cText /home/michael/webdev/node_vs_c/app.js:26:21
+     10  100.0%          Builtin: AsyncFunctionAwaitResolveClosure
+     15   15.6%    Builtin: StringPrototypeReplace
+      8   53.3%      LazyCompile: *InsertionSort native array.js:499:23
+      8  100.0%        LazyCompile: ~emit events.js:147:44
+      8  100.0%          LazyCompile: ~addChunk _stream_readable.js:285:18
+      8  100.0%            LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      6   40.0%      LazyCompile: ~cText /home/michael/webdev/node_vs_c/app.js:26:21
+      6  100.0%        Builtin: AsyncFunctionAwaitResolveClosure
+      1    6.7%      LazyCompile: ~proc.stdout.on /home/michael/webdev/node_vs_c/app.js:43:26
+      1  100.0%        LazyCompile: ~emit events.js:147:44
+      1  100.0%          LazyCompile: ~addChunk _stream_readable.js:285:18
+      1  100.0%            LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+     11   11.5%    v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*)
+     11  100.0%      LazyCompile: *InsertionSort native array.js:499:23
+     11  100.0%        LazyCompile: ~emit events.js:147:44
+     11  100.0%          LazyCompile: ~addChunk _stream_readable.js:285:18
+     11  100.0%            LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      3    3.1%    LazyCompile: *InsertionSort native array.js:499:23
+      3  100.0%      LazyCompile: ~emit events.js:147:44
+      3  100.0%        LazyCompile: ~addChunk _stream_readable.js:285:18
+      3  100.0%          LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      3  100.0%            LazyCompile: ~Readable.push _stream_readable.js:207:35
+      2    2.1%    v8::internal::Runtime_CompileLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      1   50.0%      LazyCompile: ~setArg /home/michael/webdev/node_vs_c/node_modules/minimist/index.js:54:21
+      1  100.0%        LazyCompile: ~module.exports /home/michael/webdev/node_vs_c/node_modules/minimist/index.js:1:27
+      1  100.0%          LazyCompile: ~main /home/michael/webdev/node_vs_c/app.js:86:20
+      1  100.0%            Eval: ~<anonymous> /home/michael/webdev/node_vs_c/app.js:1:1
+      1   50.0%      LazyCompile: ~TickObject internal/process/next_tick.js:74:16
+      1  100.0%        LazyCompile: ~nextTick internal/process/next_tick.js:96:20
+      1  100.0%          LazyCompile: ~onwrite _stream_writable.js:450:17
+      1  100.0%            LazyCompile: ~afterWriteDispatched internal/stream_base_commons.js:76:30
+      1    1.0%    v8::internal::Runtime_CompileOptimized_Concurrent(int, v8::internal::Object**, v8::internal::Isolate*)
+      1  100.0%      LazyCompile: ~resolve path.js:1068:28
+      1  100.0%        LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:275:28
+      1  100.0%          LazyCompile: ~Module._resolveFilename internal/modules/cjs/loader.js:602:35
+      1  100.0%            LazyCompile: ~Module._load internal/modules/cjs/loader.js:557:24
+
+     89    3.4%  Builtin: KeyedLoadIC
+     84   94.4%    LazyCompile: ~QuickSort native array.js:530:19
+     56   66.7%      LazyCompile: ~InnerArraySort native array.js:486:24
+     56  100.0%        LazyCompile: ~sort native array.js:610:46
+     56  100.0%          LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+     56  100.0%            LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+     28   33.3%      LazyCompile: ~QuickSort native array.js:530:19
+     18   64.3%        LazyCompile: ~InnerArraySort native array.js:486:24
+     18  100.0%          LazyCompile: ~sort native array.js:610:46
+     18  100.0%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+     10   35.7%        LazyCompile: ~QuickSort native array.js:530:19
+     10  100.0%          LazyCompile: ~InnerArraySort native array.js:486:24
+     10  100.0%            LazyCompile: ~sort native array.js:610:46
+      1    1.1%    LazyCompile: ~readInt32LE internal/buffer.js:266:21
+      1  100.0%      LazyCompile: ~proc.stdout.on /home/michael/webdev/node_vs_c/app.js:76:26
+      1  100.0%        LazyCompile: ~emit events.js:147:44
+      1  100.0%          LazyCompile: ~addChunk _stream_readable.js:285:18
+      1  100.0%            LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      1    1.1%    LazyCompile: ~pushAsyncIds internal/async_hooks.js:389:22
+      1  100.0%      LazyCompile: ~emitBeforeScript internal/async_hooks.js:340:26
+      1  100.0%        LazyCompile: ~_tickCallback internal/process/next_tick.js:41:25
+      1    1.1%    LazyCompile: ~nextTick internal/process/next_tick.js:96:20
+      1  100.0%      LazyCompile: ~maybeReadMore _stream_readable.js:579:23
+      1  100.0%        LazyCompile: ~addChunk _stream_readable.js:285:18
+      1  100.0%          LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      1  100.0%            LazyCompile: ~Readable.push _stream_readable.js:207:35
+      1    1.1%    LazyCompile: ~InsertionSort native array.js:499:23
+      1  100.0%      LazyCompile: *QuickSort native array.js:530:19
+      1  100.0%        LazyCompile: *QuickSort native array.js:530:19
+      1  100.0%          LazyCompile: *QuickSort native array.js:530:19
+      1  100.0%            LazyCompile: *QuickSort native array.js:530:19
+      1    1.1%    LazyCompile: ~GetThirdIndex native array.js:514:23
+      1  100.0%      LazyCompile: ~QuickSort native array.js:530:19
+      1  100.0%        LazyCompile: ~InnerArraySort native array.js:486:24
+      1  100.0%          LazyCompile: ~sort native array.js:610:46
+      1  100.0%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+
+     64    2.5%  v8::internal::Scavenger::ScavengeObject(v8::internal::HeapObjectReference**, v8::internal::HeapObject*)
+
+     62    2.4%  epoll_pwait
+
+     61    2.4%  LazyCompile: *v.sort /home/michael/webdev/node_vs_c/app.js:22:10
+     41   67.2%    LazyCompile: *QuickSort native array.js:530:19
+     33   80.5%      LazyCompile: *QuickSort native array.js:530:19
+     27   81.8%        LazyCompile: *QuickSort native array.js:530:19
+     17   63.0%          LazyCompile: *QuickSort native array.js:530:19
+      9   52.9%            LazyCompile: ~QuickSort native array.js:530:19
+      8   47.1%            LazyCompile: *QuickSort native array.js:530:19
+     10   37.0%          LazyCompile: ~QuickSort native array.js:530:19
+     10  100.0%            LazyCompile: ~InnerArraySort native array.js:486:24
+      6   18.2%        LazyCompile: ~QuickSort native array.js:530:19
+      5   83.3%          LazyCompile: ~InnerArraySort native array.js:486:24
+      5  100.0%            LazyCompile: ~sort native array.js:610:46
+      1   16.7%          LazyCompile: ~QuickSort native array.js:530:19
+      1  100.0%            LazyCompile: ~InnerArraySort native array.js:486:24
+      8   19.5%      LazyCompile: ~QuickSort native array.js:530:19
+      5   62.5%        LazyCompile: ~QuickSort native array.js:530:19
+      3   60.0%          LazyCompile: ~QuickSort native array.js:530:19
+      3  100.0%            LazyCompile: ~InnerArraySort native array.js:486:24
+      2   40.0%          LazyCompile: ~InnerArraySort native array.js:486:24
+      2  100.0%            LazyCompile: ~sort native array.js:610:46
+      3   37.5%        LazyCompile: ~InnerArraySort native array.js:486:24
+      3  100.0%          LazyCompile: ~sort native array.js:610:46
+      3  100.0%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+     15   24.6%    LazyCompile: ~QuickSort native array.js:530:19
+     11   73.3%      LazyCompile: ~InnerArraySort native array.js:486:24
+     11  100.0%        LazyCompile: ~sort native array.js:610:46
+     11  100.0%          LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+     11  100.0%            LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+      4   26.7%      LazyCompile: ~QuickSort native array.js:530:19
+      3   75.0%        LazyCompile: ~InnerArraySort native array.js:486:24
+      3  100.0%          LazyCompile: ~sort native array.js:610:46
+      3  100.0%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      1   25.0%        LazyCompile: ~QuickSort native array.js:530:19
+      1  100.0%          LazyCompile: ~InnerArraySort native array.js:486:24
+      1  100.0%            LazyCompile: ~sort native array.js:610:46
+      3    4.9%    LazyCompile: *InsertionSort native array.js:499:23
+      3  100.0%      LazyCompile: *QuickSort native array.js:530:19
+      3  100.0%        LazyCompile: *QuickSort native array.js:530:19
+      3  100.0%          LazyCompile: *QuickSort native array.js:530:19
+      3  100.0%            LazyCompile: *QuickSort native array.js:530:19
+      2    3.3%    LazyCompile: *<anonymous> native array.js:524:17
+      1   50.0%      LazyCompile: *QuickSort native array.js:530:19
+      1  100.0%        LazyCompile: *QuickSort native array.js:530:19
+      1  100.0%          LazyCompile: ~InnerArraySort native array.js:486:24
+      1  100.0%            LazyCompile: ~sort native array.js:610:46
+      1   50.0%      LazyCompile: *InsertionSort native array.js:499:23
+      1  100.0%        LazyCompile: *QuickSort native array.js:530:19
+      1  100.0%          LazyCompile: ~InnerArraySort native array.js:486:24
+      1  100.0%            LazyCompile: ~sort native array.js:610:46
+
+     51    2.0%  Builtin: CallFunction_ReceiverIsNullOrUndefined
+     43   84.3%    LazyCompile: *QuickSort native array.js:530:19
+     33   76.7%      LazyCompile: *QuickSort native array.js:530:19
+     25   75.8%        LazyCompile: *QuickSort native array.js:530:19
+     20   80.0%          LazyCompile: *QuickSort native array.js:530:19
+     13   65.0%            LazyCompile: *QuickSort native array.js:530:19
+      7   35.0%            LazyCompile: ~QuickSort native array.js:530:19
+      5   20.0%          LazyCompile: ~QuickSort native array.js:530:19
+      3   60.0%            LazyCompile: ~InnerArraySort native array.js:486:24
+      2   40.0%            LazyCompile: ~QuickSort native array.js:530:19
+      8   24.2%        LazyCompile: ~QuickSort native array.js:530:19
+      6   75.0%          LazyCompile: ~InnerArraySort native array.js:486:24
+      6  100.0%            LazyCompile: ~sort native array.js:610:46
+      2   25.0%          LazyCompile: ~QuickSort native array.js:530:19
+      2  100.0%            LazyCompile: ~QuickSort native array.js:530:19
+      8   18.6%      LazyCompile: ~QuickSort native array.js:530:19
+      5   62.5%        LazyCompile: ~QuickSort native array.js:530:19
+      5  100.0%          LazyCompile: ~QuickSort native array.js:530:19
+      5  100.0%            LazyCompile: ~InnerArraySort native array.js:486:24
+      3   37.5%        LazyCompile: ~InnerArraySort native array.js:486:24
+      3  100.0%          LazyCompile: ~sort native array.js:610:46
+      3  100.0%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      2    4.7%      LazyCompile: ~InnerArraySort native array.js:486:24
+      2  100.0%        LazyCompile: ~sort native array.js:610:46
+      2  100.0%          LazyCompile: *GetThirdIndex native array.js:514:23
+      2  100.0%            LazyCompile: *QuickSort native array.js:530:19
+      7   13.7%    LazyCompile: *InsertionSort native array.js:499:23
+      7  100.0%      LazyCompile: *QuickSort native array.js:530:19
+      7  100.0%        LazyCompile: *QuickSort native array.js:530:19
+      7  100.0%          LazyCompile: *QuickSort native array.js:530:19
+      7  100.0%            LazyCompile: *QuickSort native array.js:530:19
+      1    2.0%    LazyCompile: *<anonymous> native array.js:524:17
+      1  100.0%      LazyCompile: *QuickSort native array.js:530:19
+      1  100.0%        LazyCompile: *QuickSort native array.js:530:19
+      1  100.0%          LazyCompile: ~InnerArraySort native array.js:486:24
+      1  100.0%            LazyCompile: ~sort native array.js:610:46
+
+     49    1.9%  v8::internal::Factory::NewFixedArrayWithFiller(v8::internal::Heap::RootListIndex, int, v8::internal::Object*, v8::internal::PretenureFlag)
+     41   83.7%    v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*)
+     15   36.6%      LazyCompile: *jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+     15  100.0%        LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+     15  100.0%          LazyCompile: ~main /home/michael/webdev/node_vs_c/app.js:86:20
+     15  100.0%            Eval: ~<anonymous> /home/michael/webdev/node_vs_c/app.js:1:1
+     13   31.7%      LazyCompile: *proc.stdout.on /home/michael/webdev/node_vs_c/app.js:76:26
+     13  100.0%        LazyCompile: ~emit events.js:147:44
+     13  100.0%          LazyCompile: ~addChunk _stream_readable.js:285:18
+     13  100.0%            LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+     13   31.7%      LazyCompile: *cBinary /home/michael/webdev/node_vs_c/app.js:55:23
+     13  100.0%        Builtin: AsyncFunctionAwaitResolveClosure
+      4    8.2%    v8::internal::Runtime_StringSplit(int, v8::internal::Object**, v8::internal::Isolate*)
+      4  100.0%      Builtin: StringPrototypeSplit
+      4  100.0%        LazyCompile: ~cText /home/michael/webdev/node_vs_c/app.js:26:21
+      4  100.0%          Builtin: AsyncFunctionAwaitResolveClosure
+      4    8.2%    v8::internal::Runtime_NewArray(int, v8::internal::Object**, v8::internal::Isolate*)
+      4  100.0%      Builtin: ArrayMap
+      4  100.0%        LazyCompile: ~cText /home/michael/webdev/node_vs_c/app.js:26:21
+      4  100.0%          Builtin: AsyncFunctionAwaitResolveClosure
+
+     48    1.9%  __pthread_cond_wait
+
+     46    1.8%  Builtin: KeyedStoreIC
+     44   95.7%    LazyCompile: ~QuickSort native array.js:530:19
+     33   75.0%      LazyCompile: ~InnerArraySort native array.js:486:24
+     33  100.0%        LazyCompile: ~sort native array.js:610:46
+     32   97.0%          LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+     32  100.0%            LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+      1    3.0%          LazyCompile: ~GetThirdIndex native array.js:514:23
+      1  100.0%            LazyCompile: ~QuickSort native array.js:530:19
+     11   25.0%      LazyCompile: ~QuickSort native array.js:530:19
+      6   54.5%        LazyCompile: ~InnerArraySort native array.js:486:24
+      6  100.0%          LazyCompile: ~sort native array.js:610:46
+      6  100.0%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      5   45.5%        LazyCompile: ~QuickSort native array.js:530:19
+      5  100.0%          LazyCompile: ~InnerArraySort native array.js:486:24
+      5  100.0%            LazyCompile: ~sort native array.js:610:46
+      2    4.3%    LazyCompile: ~TickObject internal/process/next_tick.js:74:16
+      2  100.0%      LazyCompile: ~nextTick internal/process/next_tick.js:96:20
+      2  100.0%        LazyCompile: ~maybeReadMore _stream_readable.js:579:23
+      2  100.0%          LazyCompile: ~addChunk _stream_readable.js:285:18
+      2  100.0%            LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+
+     38    1.5%  node::contextify::ContextifyScript::New(v8::FunctionCallbackInfo<v8::Value> const&)
+     38  100.0%    v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     38  100.0%      LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+     38  100.0%        LazyCompile: ~NativeModule.require internal/bootstrap/loaders.js:150:34
+      4   10.5%          Script: ~<anonymous> util.js:1:11
+      4  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      3    7.9%          Script: ~<anonymous> stream.js:1:11
+      3  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      3    7.9%          Script: ~<anonymous> internal/fs/streams.js:1:11
+      3  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      3    7.9%          Script: ~<anonymous> fs.js:1:11
+      3  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      2    5.3%          Script: ~<anonymous> tty.js:1:11
+      2  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      2    5.3%          Script: ~<anonymous> internal/process/main_thread_only.js:1:11
+      2  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      2    5.3%          Script: ~<anonymous> internal/async_hooks.js:1:11
+      2  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      2    5.3%          Script: ~<anonymous> child_process.js:1:11
+      2  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      2    5.3%          Script: ~<anonymous> assert.js:1:11
+      2  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      2    5.3%          LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      2  100.0%            Script: ~bootstrapNodeJSCore internal/bootstrap/node.js:15:30
+      2    5.3%          LazyCompile: ~Module._load internal/modules/cjs/loader.js:557:24
+      2  100.0%            LazyCompile: ~Module.require internal/modules/cjs/loader.js:686:36
+      1    2.6%          Script: ~<anonymous> timers.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      1    2.6%          Script: ~<anonymous> internal/modules/cjs/helpers.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      1    2.6%          Script: ~<anonymous> internal/child_process.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      1    2.6%          Script: ~<anonymous> buffer.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      1    2.6%          LazyCompile: ~setupProcessObject internal/bootstrap/node.js:331:30
+      1  100.0%            LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      1    2.6%          LazyCompile: ~setupProcessFatal internal/bootstrap/node.js:479:29
+      1  100.0%            LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      1    2.6%          LazyCompile: ~setupNextTick internal/process/next_tick.js:5:23
+      1  100.0%            LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      1    2.6%          LazyCompile: ~setupInspector internal/bootstrap/node.js:442:26
+      1  100.0%            LazyCompile: ~setupGlobalConsole internal/bootstrap/node.js:404:30
+      1    2.6%          LazyCompile: ~setupGlobalVariables internal/bootstrap/node.js:345:32
+      1  100.0%            LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      1    2.6%          LazyCompile: ~setupGlobalConsole internal/bootstrap/node.js:404:30
+      1  100.0%            LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      1    2.6%          LazyCompile: ~createWritableStdioStream internal/process/stdio.js:177:35
+      1  100.0%            LazyCompile: ~getStdout internal/process/stdio.js:37:21
+
+     35    1.3%  node::contextify::ContextifyContext::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+     35  100.0%    v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     35  100.0%      LazyCompile: ~Module._compile internal/modules/cjs/loader.js:705:37
+     35  100.0%        LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:787:37
+     35  100.0%          LazyCompile: ~Module.load internal/modules/cjs/loader.js:645:33
+     35  100.0%            LazyCompile: ~tryModuleLoad internal/modules/cjs/loader.js:590:23
+
+     35    1.3%  LazyCompile: *InsertionSort native array.js:499:23
+     24   68.6%    LazyCompile: *QuickSort native array.js:530:19
+     24  100.0%      LazyCompile: *QuickSort native array.js:530:19
+     24  100.0%        LazyCompile: *QuickSort native array.js:530:19
+     24  100.0%          LazyCompile: *QuickSort native array.js:530:19
+     23   95.8%            LazyCompile: *QuickSort native array.js:530:19
+      1    4.2%            LazyCompile: ~QuickSort native array.js:530:19
+     11   31.4%    LazyCompile: ~emit events.js:147:44
+     11  100.0%      LazyCompile: ~addChunk _stream_readable.js:285:18
+     11  100.0%        LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+     11  100.0%          LazyCompile: ~Readable.push _stream_readable.js:207:35
+     11  100.0%            LazyCompile: ~onStreamRead internal/stream_base_commons.js:87:22
+
+     30    1.2%  v8::internal::IncrementalMarking::Step(unsigned long, v8::internal::IncrementalMarking::CompletionAction, v8::internal::StepOrigin, v8::internal::WorklistToProcess)
+
+     29    1.1%  Builtin: InterpreterEntryTrampoline
+     12   41.4%    LazyCompile: ~InnerArraySort native array.js:486:24
+     12  100.0%      LazyCompile: ~sort native array.js:610:46
+     12  100.0%        LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+     12  100.0%          LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+     12  100.0%            LazyCompile: ~main /home/michael/webdev/node_vs_c/app.js:86:20
+     11   37.9%    LazyCompile: ~QuickSort native array.js:530:19
+      6   54.5%      LazyCompile: ~QuickSort native array.js:530:19
+      6  100.0%        LazyCompile: ~InnerArraySort native array.js:486:24
+      6  100.0%          LazyCompile: ~sort native array.js:610:46
+      6  100.0%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      5   45.5%      LazyCompile: ~InnerArraySort native array.js:486:24
+      5  100.0%        LazyCompile: ~sort native array.js:610:46
+      5  100.0%          LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      5  100.0%            LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+      2    6.9%    LazyCompile: ~maybeReadMore_ _stream_readable.js:586:24
+      2  100.0%      LazyCompile: ~_tickCallback internal/process/next_tick.js:41:25
+      1    3.4%    LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      1  100.0%      LazyCompile: ~Readable.push _stream_readable.js:207:35
+      1  100.0%        LazyCompile: ~onStreamRead internal/stream_base_commons.js:87:22
+      1    3.4%    LazyCompile: ~readInt32LE internal/buffer.js:266:21
+      1  100.0%      LazyCompile: ~cBinary /home/michael/webdev/node_vs_c/app.js:55:23
+      1  100.0%        Builtin: AsyncFunctionAwaitResolveClosure
+      1    3.4%    LazyCompile: ~cBinary /home/michael/webdev/node_vs_c/app.js:55:23
+      1  100.0%      Builtin: AsyncFunctionAwaitResolveClosure
+      1    3.4%    LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      1  100.0%      LazyCompile: ~NativeModule.require internal/bootstrap/loaders.js:150:34
+      1  100.0%        Script: ~<anonymous> internal/url.js:1:11
+      1  100.0%          LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:303:44
+      1  100.0%            LazyCompile: ~NativeModule.require internal/bootstrap/loaders.js:150:34
+
+     29    1.1%  Builtin: Call_ReceiverIsNullOrUndefined
+     22   75.9%    LazyCompile: *QuickSort native array.js:530:19
+     14   63.6%      LazyCompile: *QuickSort native array.js:530:19
+     10   71.4%        LazyCompile: *QuickSort native array.js:530:19
+      6   60.0%          LazyCompile: *QuickSort native array.js:530:19
+      3   50.0%            LazyCompile: ~QuickSort native array.js:530:19
+      3   50.0%            LazyCompile: *QuickSort native array.js:530:19
+      4   40.0%          LazyCompile: ~QuickSort native array.js:530:19
+      3   75.0%            LazyCompile: ~InnerArraySort native array.js:486:24
+      1   25.0%            LazyCompile: ~QuickSort native array.js:530:19
+      4   28.6%        LazyCompile: ~QuickSort native array.js:530:19
+      4  100.0%          LazyCompile: ~QuickSort native array.js:530:19
+      3   75.0%            LazyCompile: ~InnerArraySort native array.js:486:24
+      1   25.0%            LazyCompile: ~QuickSort native array.js:530:19
+      7   31.8%      LazyCompile: ~QuickSort native array.js:530:19
+      5   71.4%        LazyCompile: ~QuickSort native array.js:530:19
+      3   60.0%          LazyCompile: ~InnerArraySort native array.js:486:24
+      3  100.0%            LazyCompile: ~sort native array.js:610:46
+      2   40.0%          LazyCompile: ~QuickSort native array.js:530:19
+      2  100.0%            LazyCompile: ~InnerArraySort native array.js:486:24
+      2   28.6%        LazyCompile: ~InnerArraySort native array.js:486:24
+      2  100.0%          LazyCompile: ~sort native array.js:610:46
+      2  100.0%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      1    4.5%      LazyCompile: ~InnerArraySort native array.js:486:24
+      1  100.0%        LazyCompile: ~sort native array.js:610:46
+      1  100.0%          LazyCompile: *GetThirdIndex native array.js:514:23
+      1  100.0%            LazyCompile: *QuickSort native array.js:530:19
+      7   24.1%    LazyCompile: *InsertionSort native array.js:499:23
+      7  100.0%      LazyCompile: *QuickSort native array.js:530:19
+      7  100.0%        LazyCompile: *QuickSort native array.js:530:19
+      7  100.0%          LazyCompile: *QuickSort native array.js:530:19
+      7  100.0%            LazyCompile: *QuickSort native array.js:530:19
+
+     29    1.1%  Builtin: CallFunction_ReceiverIsAny
+     19   65.5%    LazyCompile: ~QuickSort native array.js:530:19
+     13   68.4%      LazyCompile: ~InnerArraySort native array.js:486:24
+     13  100.0%        LazyCompile: ~sort native array.js:610:46
+     13  100.0%          LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+     13  100.0%            LazyCompile: ~timer /home/michael/webdev/node_vs_c/app.js:11:21
+      6   31.6%      LazyCompile: ~QuickSort native array.js:530:19
+      4   66.7%        LazyCompile: ~InnerArraySort native array.js:486:24
+      4  100.0%          LazyCompile: ~sort native array.js:610:46
+      4  100.0%            LazyCompile: ~jsCreateAndSort /home/michael/webdev/node_vs_c/app.js:18:25
+      2   33.3%        LazyCompile: ~QuickSort native array.js:530:19
+      2  100.0%          LazyCompile: ~InnerArraySort native array.js:486:24
+      2  100.0%            LazyCompile: ~sort native array.js:610:46
+      7   24.1%    Builtin: ArrayMap
+      7  100.0%      LazyCompile: ~cText /home/michael/webdev/node_vs_c/app.js:26:21
+      7  100.0%        Builtin: AsyncFunctionAwaitResolveClosure
+      1    3.4%    LazyCompile: ~proc.stdout.on /home/michael/webdev/node_vs_c/app.js:43:26
+      1  100.0%      LazyCompile: ~emit events.js:147:44
+      1  100.0%        LazyCompile: ~addChunk _stream_readable.js:285:18
+      1  100.0%          LazyCompile: ~readableAddChunk _stream_readable.js:232:26
+      1  100.0%            LazyCompile: ~Readable.push _stream_readable.js:207:35
+      1    3.4%    LazyCompile: ~cBinary /home/michael/webdev/node_vs_c/app.js:55:23
+      1  100.0%      Builtin: AsyncFunctionAwaitResolveClosure
+      1    3.4%    LazyCompile: ~_tickCallback internal/process/next_tick.js:41:25
+
+     27    1.0%  Builtin: ArrayMapLoopContinuation
+     27  100.0%    Builtin: ArrayMap
+     27  100.0%      LazyCompile: ~cText /home/michael/webdev/node_vs_c/app.js:26:21
+     27  100.0%        Builtin: AsyncFunctionAwaitResolveClosure
+
+     26    1.0%  UNKNOWN
+
