@@ -128,6 +128,17 @@ void count_sort(const int n, const int r_max, const int r_min, int v[]){
     free(aux);
 }
 
+void concatena_array(const int n, const int p,
+                     int u[], int v[], int w[]){
+    /* faz u = v conc w
+    *  p é o tamanho do array v
+    *  n é o tamanho final do array u, portanto
+    *  q (tamanho de w) = n - p */
+    int i;
+    for(i = 0; i < p; i++) u[i] = v[i];
+    for(i = 0; i < n-p; i++) u[p+1] = w[i];
+}
+
 void radix_sort(const int n, int v[]){
     int i, max, dig, size_aux0, size_aux1;
     int *aux0 = malloc(n * sizeof(int));
@@ -154,53 +165,4 @@ void radix_sort(const int n, int v[]){
     }
     free(aux0);
     free(aux1);
-}
-
-int ceil_div(int a, int b){
-    /* recebe os inteiros a e b e devolve o teto da divisão a/b */
-    double c = (double)a / (double)b;
-    return (int)c + 1;
-}
-
-int floor_div(int a, int b){
-    /* recebe os inteiros a e b e devolve o chão da divisão a/b */
-    double c = (double)a / (double)b;
-    return (int)c;
-}
-
-int overflow_mult(int a, int b){
-    int c = a * b;
-    if(c / a == b) return 0;
-    else           return 1;
-}
-
-void bucket_sort(const int n, const int r_max, const int r_min, int v[]){
-    /* Utiliza insert_sort como auxiliar */
-    const int range = r_max - r_min;
-    const int n_urnas = ceil_div(n, BUCKET_AVG_SIZE);
-    int tam;
-    if(overflow_mult(BUCKET_AVG_SIZE, range))
-        tam = BUCKET_AVG_SIZE * ceil_div(range, n);
-    else
-        tam = ceil_div(BUCKET_AVG_SIZE * range, n);
-    int i, key;
-    /* criação das urnas */
-    /* usei aqui uma versão rudimentar do que depois aprendemos
-    como listas ligadas */
-    Vetor_Int ** urnas = malloc(n_urnas * sizeof(Vetor_Int*));
-    for(i = 0; i < n_urnas; i++)
-        urnas[i] = Vetor_Int_cria(BUCKET_AVG_SIZE, BUCKET_AVG_SIZE);
-    /* distribuição dos elementos em urnas / baldes */
-    for(i = 0; i < n; i++){
-        key = floor_div((v[i] - r_min), tam);
-        Vetor_Int_add(urnas[key], v[i]);
-    }
-    /* organização interna das urnas */
-    for(i = 0; i < n_urnas; i++)
-        insert_sort(urnas[i]->topo, urnas[i]->v);
-    /* concatenação das urnas */
-    Vetor_Int_to_array(urnas, n_urnas, v);
-    for(i = 0; i < n_urnas; i++)
-        Vetor_Int_del(urnas[i]);
-    free(urnas);
 }

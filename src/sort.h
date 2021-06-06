@@ -3,7 +3,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "matrixandvec.h"
 
 #define MAX_COUNT_SORT 0xffffffff
 #define BUCKET_AVG_SIZE 8
@@ -30,16 +29,9 @@ void quick_sort(const int n, int v[]);
 
 void count_sort(const int n, const int r_max, const int r_min, int v[]);
 
+void concatena_array(const int n, const int p,
+                     int u[], int v[], int w[]);
+
 void radix_sort(const int n, int v[]);
-
-/* */
-
-int ceil_div(int a, int b);
-
-int floor_div(int a, int b);
-
-int overflow_mult(int a, int b);
-
-void bucket_sort(const int n, const int r_max, const int r_min, int v[]);
 
 #endif /* SORT_H */
