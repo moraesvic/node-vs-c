@@ -6,14 +6,25 @@ const { once } = require('events');
 
 const C_BINARY = Path.join(__dirname, 'bin/binary');
 const C_TEXT = Path.join(__dirname, 'bin/text');
+
+/* Maximum value for the integers in the array */
 const MAX_INT = 0x7fffffff;
-const HEAD = 10;
-const TAIL = 10;
 
-const TERM_RED = "\x1b[31m";
-const TERM_RESET = "\x1b[0m";
+/* Number of entries to show in shortPrint() */
+const HEAD = 5;
+const TAIL = 5;
 
-function printLongArray(v){
+/* ANSI escape codes for pretty-printing */
+const TERM_RED = "\x1b[0;31m";
+const TERM_BOLD_RED = "\x1b[1;31m";
+const TERM_RESET = "\x1b[0;0m";
+
+/* Internal control codes */
+const NOPRINT    = 0;
+const SHORTPRINT = 1;
+const FULLPRINT  = 2;
+
+function shortPrint(v){
   let head = v.slice(0, HEAD);
   let tail = v.slice(v.length - TAIL, v.length);
 
@@ -30,7 +41,7 @@ function printLongArray(v){
   console.log('%s]', TERM_RESET);
 }
 
-function printFullArray(v){
+function fullPrint(v){
   console.log('[%s', TERM_RED);
   for(let i = 0; i < v.length; i++)
     console.log('  %d', v[i]);
@@ -41,8 +52,12 @@ async function timer(fn, size_input, print_sorted){
   const start = new Date();
   const v = await fn(size_input, print_sorted);
   const duration = new Date() - start;
-  if(print_sorted)  printLongArray(v); 
+  if(print_sorted === SHORTPRINT) 
+    shortPrint(v); 
+  else if(print_sorted === FULLPRINT)
+    fullPrint(v);
   console.log(`Code executed in ${duration} ms\n`);
+  return duration;
 }
 
 function jsCreateAndSort(size_input, print_sorted){
@@ -58,37 +73,6 @@ async function cText(size_input, print_sorted){
   let out = await TeenPr.exec(`${C_TEXT}`,
           [ size_input ]);
   let v = out.stdout.replace(' \n', '').split(' ').map(x => Number(x));  
-  return v;
-}
-
-async function asyncCText(size_input, print_sorted){
-  const proc = TeenPr.spawn(`${C_TEXT}`, [ size_input ]);
-
-  var v = [];
-  var temp = ''
-  
-  proc.stdout.on('data', (data) => {
-    let str = data.toString();
-    let strArray = str.replace(' \n', '').split(' ');
-
-    strArray[0] = temp + strArray[0];
-    
-    if(str[str.length - 1] !== ' ' && str[str.length - 1] !== '\n'){
-      temp = strArray[strArray.length - 1];
-      strArray.splice(strArray.length - 1);
-    }
-    else
-      temp = '';
-
-    for(let i = 0; i < strArray.length; i++)
-      if(strArray[i] == '')
-        strArray.splice(i,i--);
-
-    let numarray = strArray.map(x => Number(x));
-    v = v.concat(numarray);
-  });
-  
-  await once(proc.stdout, 'close');
   return v;
 }
 
@@ -124,46 +108,53 @@ async function main(){
   const argv = Minim(process.argv.slice(2));
 
   const help = argv.help || false;
-  const size_input = argv.n || 10000;
-
-  if(help || typeof(size_input) !== Number){
-    console.log("Usage: node app.js [--js --ctxt --cbin --casync / --all] -n SIZE_OF_ARRAY");
+  if(help){
+    console.log("Usage: node app.js [--js --ctxt --cbin --casync / --all] [--print / --fullprint] -n SIZE_OF_ARRAY");
     return;
   }
 
-  
-  const print_sorted = argv.print || false;
+  let size_input = Number(argv.n) || 10000;
+  let print_sorted = NOPRINT;
+  if(argv.print)
+    print_sorted = SHORTPRINT;
+  if(argv.fullprint)
+    print_sorted = FULLPRINT;
 
-  var js = argv.js || false;
-  var ctxt = argv.ctxt || false;
-  var cbin = argv.cbin || false;
-  var casync = argv.casync || false;
-  var all = argv.casync || false;
+  let js = argv.js || false;
+  let ctxt = argv.ctxt || false;
+  let cbin = argv.cbin || false;
+  let casync = argv.casync || false;
+  let all = argv.all || false;
 
   if(!js && !ctxt && !cbin && !casync && !all)
     all = true;
 
   if(all){
-    js = true; ctxt = true; cbin = true; casync = true;
-  }
-
+    js = true; ctxt = true; cbin = true; casync = true; }
 
   console.log(`Creating and sorting random array with ${size_input} integers, from 0 to ${MAX_INT}`);
   console.log(`We are running in ${process.env.NODE_ENV || "development"} mode.\n`);
   
+  let jstime;
+  let ctxttime = cbintime = casynctime = Infinity;
+
   if(js){
     console.log('JAVASCRIPT');
-    await timer(jsCreateAndSort, size_input, print_sorted); }
+    jstime = await timer(jsCreateAndSort, size_input, print_sorted); }
   if(ctxt){
     console.log('C-Text');
-    await timer(cText, size_input, print_sorted); }
+    ctxttime = await timer(cText, size_input, print_sorted); }
   if(cbin){
     console.log('C-Binary (via buffer)');
-    await timer(cBinary, size_input, print_sorted);
-  }
+    cbintime = await timer(cBinary, size_input, print_sorted); }
   if(casync){
     console.log('async C-Binary (via buffer)');
-    await timer(asyncCBinary, size_input, print_sorted);
+    casynctime = await timer(asyncCBinary, size_input, print_sorted); }
+
+  if(process.env.NODE_ENV == 'production' && js && (ctxt || cbin || casync)){
+    let ratio = Math.round(Math.min(ctxttime, cbintime, casynctime)
+                  / jstime * 100.0);
+    console.log(`${TERM_BOLD_RED}Best C processed in ${ratio}% of JS's time${TERM_RESET}`);
   }
 }
 
