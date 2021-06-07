@@ -1,4 +1,3 @@
-
 const Path = require('path');
 const TeenPr = require('teen_process');
 const Minim = require('minimist');
@@ -50,7 +49,7 @@ function fullPrint(v){
 
 async function timer(fn, size_input, print_sorted){
   const start = new Date();
-  const v = await fn(size_input, print_sorted);
+  const v = await fn(size_input);
   const duration = new Date() - start;
   if(print_sorted === SHORTPRINT) 
     shortPrint(v); 
@@ -60,7 +59,7 @@ async function timer(fn, size_input, print_sorted){
   return duration;
 }
 
-function jsCreateAndSort(size_input, print_sorted){
+function jsCreateAndSort(size_input){
   let v = [];
   for(var i = 0; i < size_input; i++)
     v.push(Math.floor( Math.random() * MAX_INT ));
@@ -69,14 +68,14 @@ function jsCreateAndSort(size_input, print_sorted){
   return v;
 }
 
-async function cText(size_input, print_sorted){
+async function cText(size_input){
   let out = await TeenPr.exec(`${C_TEXT}`,
           [ size_input ]);
   let v = out.stdout.replace(' \n', '').split(' ').map(x => Number(x));  
   return v;
 }
 
-async function cBinary(size_input, print_sorted){
+async function cBinary(size_input){
   const out = await TeenPr.exec(`${C_BINARY}`,
           [ size_input ],
           {encoding: 'binary',
@@ -90,7 +89,7 @@ async function cBinary(size_input, print_sorted){
   return v;
 }
 
-async function asyncCBinary(size_input, print_sorted){
+async function asyncCBinary(size_input){
   const proc = TeenPr.spawn(`${C_BINARY}`, [ size_input ]);
 
   let v = [];

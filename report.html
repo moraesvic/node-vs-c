@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Native NodeJS vs. C binary: a benchmark</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+    <h1>Native NodeJS vs. C binary: a benchmark</h1>
+    <p><em>Victor Moraes</em></p>
+    <p>
+      Ever since its debut in 1995, JavaScript has been improving its speed.With the V8 engine, in 2008, the language could now be compiled and reach speeds similar to those of low-level languages. In 2009, the OpenJs Foundation announced NodeJS, and since then JavaScript has been running both on client and on server side. The speed increase is undeniable - however - how does it compare nowadays with C compiled code?
+    </p>
+    <p>
+      The short answer is most probably "Yes, C is faster", but that doesn't say much. What about the overhead to integrate C to a web application, powered by NodeJS? The speed comparison could vary dramatically, depending on the application and the scale. So I decided to take one particular example and benchmark it. How fast can NodeJS sort a list of integers, compared to QuickSort implemented in C? To be fair, I will use NodeJS's native <code>sort()</code> function, <a href="https://stackoverflow.com/questions/234683/javascript-array-sort-implementation">whose implementation depends on the type of data inputed</a>, but is certainly an algorithm with quasi-linear (<code>n log(n)</code>) time.
+    </p>
+    <h2>Creating and sorting the array</h2>
+    <p>
+      Let's start with C. We will use here a typical implementation of QuickSort. It is not really relevant to explain it in detail, nor is the explanation of the generation of the random array. The reader is invited to check the source code in GitHub, available at the end of the article.
+      
+    </p>
+    <code>
+<pre class="cpp" style="font-family:monospace;"><span style="color: #0000ff;">void</span> quick_sort<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> n, <span style="color: #0000ff;">int</span> v<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#123;</span>
+  <span style="color: #ff0000; font-style: italic;">/* Wrapper */</span>
+  quick_sort_2<span style="color: #008000;">&#40;</span><span style="color: #0000dd;">0</span>, n<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>, v<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+
+<pre class="cpp" style="font-family:monospace;"><span style="color: #0000ff;">void</span> quick_sort_2<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> p, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> r, <span style="color: #0000ff;">int</span> v<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#123;</span>
+  <span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span>p <span style="color: #000080;">&gt;=</span> r<span style="color: #008000;">&#41;</span>
+      <span style="color: #0000ff;">return</span><span style="color: #008080;">;</span>    
+  <span style="color: #0000ff;">int</span> j<span style="color: #008080;">;</span>
+  j <span style="color: #000080;">=</span> separate<span style="color: #008000;">&#40;</span>p, r, v<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+  quick_sort_2<span style="color: #008000;">&#40;</span>p, j<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>, v<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+  quick_sort_2<span style="color: #008000;">&#40;</span>j<span style="color: #000040;">+</span><span style="color: #0000dd;">1</span>, r, v<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+
+<pre class="cpp" style="font-family:monospace;"><span style="color: #0000ff;">int</span> separate<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> p, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> r, <span style="color: #0000ff;">int</span> v<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#123;</span>
+  <span style="color: #ff0000; font-style: italic;">/* Receives an array v[p..r] with p &lt;= r. Rearranges the elements in the array
+   * and returns j, belonging to [p...r], such that v[p..j-1] &lt;= v[j] &lt; v[j+1..r]. */</span>
+&nbsp;
+  <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> pivot <span style="color: #000080;">=</span> v<span style="color: #008000;">&#91;</span>r<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+  <span style="color: #0000ff;">int</span> j, k, temp<span style="color: #008080;">;</span>
+&nbsp;
+  <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> p, k <span style="color: #000080;">=</span> p<span style="color: #008080;">;</span> k <span style="color: #000080;">&lt;</span> r<span style="color: #008080;">;</span> <span style="color: #000040;">++</span>k<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#123;</span>
+      <span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span>v<span style="color: #008000;">&#91;</span>k<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&lt;=</span> pivot<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#123;</span>
+          temp <span style="color: #000080;">=</span> v<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+          v<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> v<span style="color: #008000;">&#91;</span>k<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+          v<span style="color: #008000;">&#91;</span>k<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> temp<span style="color: #008080;">;</span>
+          <span style="color: #000040;">++</span>j<span style="color: #008080;">;</span>
+      <span style="color: #008000;">&#125;</span>
+  <span style="color: #008000;">&#125;</span>
+  v<span style="color: #008000;">&#91;</span>r<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> v<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+  v<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> pivot<span style="color: #008080;">;</span>
+&nbsp;
+  <span style="color: #0000ff;">return</span> j<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+    </code>
+    <p>
+      We employ a driver code to read the input size from the command line, generate the random array, sort it and print it. We will have the output in two flavors: one will output the ordered numbers as raw binary (4 bits per integer); the other will output them in ASCII, separated by spaces and finishing with a newline. We compile the binaries with the optimization flags:
+    </p>
+    <code>
+<pre class="bash" style="font-family:monospace;"><span style="color: #007800;">FLAGS</span>=-Wall <span style="color: #660033;">-O3</span>
+&nbsp;
+make: my_random.o sort.o binary.c text.c
+  <span style="color: #c20cb9; font-weight: bold;">gcc</span> $<span style="color: #7a0874; font-weight: bold;">&#40;</span>FLAGS<span style="color: #7a0874; font-weight: bold;">&#41;</span> my_random.o sort.o binary.c <span style="color: #660033;">-o</span> ..<span style="color: #000000; font-weight: bold;">/</span>bin<span style="color: #000000; font-weight: bold;">/</span>binary
+  <span style="color: #c20cb9; font-weight: bold;">gcc</span> $<span style="color: #7a0874; font-weight: bold;">&#40;</span>FLAGS<span style="color: #7a0874; font-weight: bold;">&#41;</span> my_random.o sort.o text.c <span style="color: #660033;">-o</span> ..<span style="color: #000000; font-weight: bold;">/</span>bin<span style="color: #000000; font-weight: bold;">/</span>text</pre>
+    </code>
+    <h2>Calling C code from NodeJS</h2>
+    <p>
+      Now the NodeJS code is even simpler, using the native libraries <code>Math.random</code> and <code>Array.sort</code>:
+    </p>
+    <code>
+      <pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">function</span> jsCreateAndSort<span style="color: #009900;">&#40;</span>size_input<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span>
+        let v <span style="color: #339933;">=</span> <span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+        <span style="color: #000066; font-weight: bold;">for</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">var</span> i <span style="color: #339933;">=</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;</span> size_input<span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span>
+          v.<span style="color: #660066;">push</span><span style="color: #009900;">&#40;</span><span style="">Math</span>.<span style="color: #660066;">floor</span><span style="color: #009900;">&#40;</span> <span style="">Math</span>.<span style="color: #660066;">random</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">*</span> MAX_INT <span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+        v.<span style="color: #660066;">sort</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>a<span style="color: #339933;">,</span>b<span style="color: #009900;">&#41;</span> <span style="color: #339933;">=&gt;</span> a <span style="color: #339933;">-</span> b<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+      &nbsp;
+        <span style="color: #000066; font-weight: bold;">return</span> v<span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre>
+    </code>
+    <p>
+      The question now is, how will we call our binary from the NodeJS application? Here comes handy the <a href='https://www.npmjs.com/package/teen_process'>NPM package <code>teen_process</code></a>, whose name is wittily derived from its deprecated predecessor, <code>child-process</code>. The usage is pretty straightforward. You run a terminal command with a list with its arguments and a dictionary of options. The function returns a promise that will give us access to the <code>stdout</code> and <code>stderror</code> output, as well as other signals emitted by the function.
+    </p>
+    <code>
+<pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">const</span> TeenPr <span style="color: #339933;">=</span> require<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'teen_process'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+let <span style="color: #009900;">&#123;</span>stdout<span style="color: #339933;">,</span> stderr<span style="color: #009900;">&#125;</span> <span style="color: #339933;">=</span> await TeenPr.<span style="color: #660066;">exec</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'cat'</span><span style="color: #339933;">,</span> <span style="color: #009900;">&#91;</span>filename<span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span> <span style="color: #009900;">&#123;</span>isBuffer<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></pre>
+    </code>
+    <p>
+      Now, how do we import the output from the C binaries to Node? We will read from the <code>stdout</code>, either a <code>string</code>, or, in case we are outputting raw binary from C, a <code>buffer</code>. Then this string or buffer will be processed into a JavaScript array.
+    </p>
+    <p>
+      Processing text in Node is almost a one-liner. We strip the string of its final blank spaces, split it using a whitespace separator, and then convert the numerical strings to numbers.
+    </p>
+    <code>
+<pre class="javascript" style="font-family:monospace;">async <span style="color: #000066; font-weight: bold;">function</span> cText<span style="color: #009900;">&#40;</span>size_input<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span>
+  let out <span style="color: #339933;">=</span> await TeenPr.<span style="color: #660066;">exec</span><span style="color: #009900;">&#40;</span>`$<span style="color: #009900;">&#123;</span>C_TEXT<span style="color: #009900;">&#125;</span>`<span style="color: #339933;">,</span> <span style="color: #009900;">&#91;</span> size_input <span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+  let v <span style="color: #339933;">=</span> out.<span style="color: #660066;">stdout</span>.<span style="color: #660066;">replace</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">' <span style="color: #000099; font-weight: bold;">\n</span>'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">''</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">split</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">' '</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">map</span><span style="color: #009900;">&#40;</span>x <span style="color: #339933;">=&gt;</span> <span style="">Number</span><span style="color: #009900;">&#40;</span>x<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>  
+  <span style="color: #000066; font-weight: bold;">return</span> v<span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre>
+    </code>
+    <p>
+      Now for the binary output, we can't just read it as a string. Trying to process a string in such a manner, <em>by reading it char by char, as you would have had it in C, is misleading</em>, because <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt'><code>String.charCodeAt()</code></a> is suited to read Unicode, and not bytes.
+    </p>
+    <p>
+      Instead, we will use a <a href='https://nodejs.org/api/buffer.html'>buffer</a>. That is quite a powerful implementation, allowing for some low-level manipulation. Luckily, we can combine this with <code>teen_process</code>'s capabilities to read binary output into a buffer.
+    </p>
+    <p>
+      What happens next is, we read the buffer, integer by integer. Remember that an integer occupies 4 bytes, so we read 32 bits at a time. My system uses Little Endian, thence the <code>LE</code> suffix, you might need to adapt it if you are using Windows.
+    </p>
+    <code>
+      <pre class="javascript" style="font-family:monospace;">async <span style="color: #000066; font-weight: bold;">function</span> cBinary<span style="color: #009900;">&#40;</span>size_input<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span>
+  <span style="color: #000066; font-weight: bold;">const</span> out <span style="color: #339933;">=</span> await TeenPr.<span style="color: #660066;">exec</span><span style="color: #009900;">&#40;</span>`$<span style="color: #009900;">&#123;</span>C_BINARY<span style="color: #009900;">&#125;</span>`<span style="color: #339933;">,</span> <span style="color: #009900;">&#91;</span> size_input <span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span>
+          <span style="color: #009900;">&#123;</span>
+            encoding<span style="color: #339933;">:</span> <span style="color: #3366CC;">'binary'</span><span style="color: #339933;">,</span>
+            isBuffer<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">true</span>
+          <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+  <span style="color: #000066; font-weight: bold;">const</span> buf <span style="color: #339933;">=</span> out.<span style="color: #660066;">stdout</span><span style="color: #339933;">;</span>
+  let v <span style="color: #339933;">=</span> <span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+  <span style="color: #000066; font-weight: bold;">for</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">var</span> i <span style="color: #339933;">=</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;</span> buf.<span style="color: #660066;">length</span><span style="color: #339933;">;</span> i <span style="color: #339933;">+=</span> <span style="color: #CC0000;">4</span><span style="color: #009900;">&#41;</span>
+    v.<span style="color: #660066;">push</span><span style="color: #009900;">&#40;</span>buf.<span style="color: #660066;">readInt32LE</span><span style="color: #009900;">&#40;</span>i<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+  <span style="color: #000066; font-weight: bold;">return</span> v<span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre>
+    </code>
+    <h2>Testing, results and analysis</h2>
+    <p>
+      Now we create some routines to check whether all functions are outputting the same. To make our life easier, we decided not to call <code>srand(time(NULL));</code> in the C implementation. That means that the C output is only pseudo-random. That is not an issue for us, and actually means debugging is simpler.
+    </p>
+    <code>
+<pre class="bash" style="font-family:monospace;"><span style="color: #666666; font-style: italic;"># test.sh</span>
+<span style="color: #c20cb9; font-weight: bold;">mkdir</span> <span style="color: #660033;">-p</span> <span style="color: #7a0874; font-weight: bold;">test</span>
+node app.js <span style="color: #660033;">--ctxt</span> <span style="color: #660033;">--fullprint</span> <span style="color: #660033;">-n</span> <span style="color: #000000;">100000</span> <span style="color: #000000; font-weight: bold;">&gt;</span> test<span style="color: #000000; font-weight: bold;">/</span>ctxt
+node app.js <span style="color: #660033;">--cbin</span> <span style="color: #660033;">--fullprint</span> <span style="color: #660033;">-n</span> <span style="color: #000000;">100000</span> <span style="color: #000000; font-weight: bold;">&gt;</span> test<span style="color: #000000; font-weight: bold;">/</span>cbin
+node app.js <span style="color: #660033;">--casync</span> <span style="color: #660033;">--fullprint</span> <span style="color: #660033;">-n</span> <span style="color: #000000;">100000</span> <span style="color: #000000; font-weight: bold;">&gt;</span> test<span style="color: #000000; font-weight: bold;">/</span>casync
+<span style="color: #c20cb9; font-weight: bold;">diff</span> test<span style="color: #000000; font-weight: bold;">/</span>ctxt test<span style="color: #000000; font-weight: bold;">/</span>cbin
+<span style="color: #c20cb9; font-weight: bold;">diff</span> test<span style="color: #000000; font-weight: bold;">/</span>ctxt test<span style="color: #000000; font-weight: bold;">/</span>casync</pre>
+    </code>
+    <p>
+      We check that all the implementations produce the same output. We can now see how their speeds compare, when sorting 1 million integers.
+    </p>
+    <code>
+<pre>
+Creating and sorting random array with 1000000 integers...
+
+<b>JAVASCRIPT</b>
+Code executed in 947 ms
+
+<b>C-Text</b>
+Code executed in 864 ms
+
+<b>C-Binary (via buffer)</b>
+Code executed in 189 ms
+
+<strong><span style="color: red;">Best C processed in 20% of JS's time</span></strong>
+</pre>
+    </code>
+  <p>
+    That's interesting. The C text version ran just a bit faster than JS's. C binary ran a lot faster, in just one fifth of the time. I am curious, does this have to do with the encoding itself? <em>The binary representation should take around <code>log(256) &frasl; log(10) = 2.408</code> times less space than the decimal</em>. Or is it the conversion from binary to ASCII, then the reconversion from ASCII to binary that makes it really slow?
+  </p>
+  <code>
+<pre>
+time bin/text 1000000 > /dev/null
+
+real  0m0,249s
+user  0m0,241s
+sys   0m0,008s
+
+time bin/binary 1000000 > /dev/null
+
+real  0m0,140s
+user  0m0,131s
+sys   0m0,009s
+
+</pre>
+  </code>
+  <p>
+    So yes, the textual output is <code>1.84</code> times slower than the binary. But then the JavaScript version should take around <code>248 ms</code>, and it takes a lot more. <em>The string reconversion is to blame</em>, as we verified when profiling the code.
+  </p>
+  <h2>The last question</h2>
+  <p>
+    Somehow I get the feeling that the C binary version could be improved even further. There is some room for that, right? The call through NodeJS is taking <code>1.44</code> times longer than the native call. So, <em>what if I don't wait for the entire output to be ready to start processing it, but push it asynchronously, little by little, to my array?</em> I can do that with <code>TeenProcess.spawn()</code>, which works with asynchronous outputs and event listeners.
+  </p>
+  <code>
+<pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">const</span> <span style="color: #009900;">&#123;</span> once <span style="color: #009900;">&#125;</span> <span style="color: #339933;">=</span> require<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'events'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+async <span style="color: #000066; font-weight: bold;">function</span> asyncCBinary<span style="color: #009900;">&#40;</span>size_input<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span>
+  <span style="color: #000066; font-weight: bold;">const</span> proc <span style="color: #339933;">=</span> TeenPr.<span style="color: #660066;">spawn</span><span style="color: #009900;">&#40;</span>`$<span style="color: #009900;">&#123;</span>C_BINARY<span style="color: #009900;">&#125;</span>`<span style="color: #339933;">,</span> <span style="color: #009900;">&#91;</span> size_input <span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+  let v <span style="color: #339933;">=</span> <span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+&nbsp;
+  proc.<span style="color: #660066;">stdout</span>.<span style="color: #660066;">on</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'data'</span><span style="color: #339933;">,</span> <span style="color: #009900;">&#40;</span>data<span style="color: #009900;">&#41;</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">for</span><span style="color: #009900;">&#40;</span>let i <span style="color: #339933;">=</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;</span> data.<span style="color: #660066;">length</span><span style="color: #339933;">;</span> i <span style="color: #339933;">+=</span> <span style="color: #CC0000;">4</span><span style="color: #009900;">&#41;</span>
+      v.<span style="color: #660066;">push</span><span style="color: #009900;">&#40;</span>data.<span style="color: #660066;">readInt32LE</span><span style="color: #009900;">&#40;</span>i<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+  await once<span style="color: #009900;">&#40;</span>proc.<span style="color: #660066;">stdout</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'close'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+  <span style="color: #000066; font-weight: bold;">return</span> v<span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre>
+  </code>
+  <p>
+    We run the test again, this time for 10 million integers. How will this async reading fare? Make your bets.
+  </p>
+  <code>
+<pre>
+Creating and sorting random array with 10000000 integers...
+
+<b>JAVASCRIPT</b>
+Code executed in 10904 ms
+
+<b>C-Text</b>
+Code executed in 9336 ms
+
+<b>C-Binary (via buffer)</b>
+Code executed in 2324 ms
+
+<b>async C-Binary (via buffer)</b>
+Code executed in 2156 ms
+
+<strong><span style="color: red;">Best C processed in 20% of JS's time</span></strong>
+</pre>
+  </code>
+  <p>
+    Oh well, that was a bit disappointing, right? And you only start seeing a (very marginal) improvement over the synchronous version when you have a very large input size. Anyway, that's life. What is to blame for that, in this case I really don't know.
+  </p>
+  <p>
+    What about an asynchronous version for the textual output? That was not very practical, because the data chunks come with random sizes, and break the strings in the middle of a number, for example. I tried that, but ended up with ugly code that ran even slower than native Node. If you have any ideas on that, let me know!
+  </p>
+  <h2>Source code</h2>
+  <p>The source code for this project can be found <a href="https://github.com/moraesvic/node-vs-c">at my GitHub repository.</a></p>
+  <h2>References</h2>
+  <ul>
+    <li>FEOFILOFF, Paulo. <a href="https://www.ime.usp.br/~pf/algoritmos-livro/">Algoritmos em linguagem C</a>. Campus/Elsevier, 2009.</li>
+    <li><a href='https://highlight.hohli.com/index.php'>Syntax highlighter</a> by Anton Shevchuk.</li>
+  </ul>
+  </body>
+</html>
